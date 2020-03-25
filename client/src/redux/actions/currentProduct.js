@@ -1,6 +1,6 @@
-var currentProduct = (product) => ({
-  type: `CURRENT_PRODUCT`,
+var setCurrent = (product) => ({
+  type: `SET_CURRENT`,
   payload: product,
 });
 
-export default currentProduct;
+export default setCurrent;
