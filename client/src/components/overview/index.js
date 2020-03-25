@@ -2,7 +2,7 @@ import React from 'react';
 import ProductInfo from './productInfo';
 
 const Overview = () => (
-  <div>
+  <div data-testid="productOverview">
     Overview component
     <ProductInfo />
   </div>
