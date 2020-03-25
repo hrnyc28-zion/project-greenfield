@@ -1,5 +1,7 @@
 import React from 'react';
 
-const SocialCard = () => <div>SocialCard component</div>;
+const SocialCard = () => (
+  <div data-testid="socialCard">SocialCard component</div>
+);
 
 export default SocialCard;
