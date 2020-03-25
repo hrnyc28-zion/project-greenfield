@@ -4,7 +4,7 @@ import ProductDetails from './ProductDetails';
 import SocialCard from './SocialCard';
 
 const ProductInfo = () => (
-  <div>
+  <div data-testid="productInfo">
     ProductInfo component
     <section>
       <ProductRating />
