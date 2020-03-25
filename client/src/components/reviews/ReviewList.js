@@ -15,7 +15,9 @@ const ReviewList = ({ reviewList }) => {
       <table className="reviews">
         <tbody>
           {reviewList.results.map((review) => (
-            <ReviewTile key={review.review_id} {...review} />
+            <tr>
+              <ReviewTile key={review.review_id} {...review} />
+            </tr>
           ))}
         </tbody>
       </table>
