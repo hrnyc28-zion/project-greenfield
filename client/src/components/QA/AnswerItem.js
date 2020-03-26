@@ -1,20 +1,30 @@
 import React from 'react';
 
-export const AnswerItem = ({ answer }) => {
+const dateFormatter = (dateStr) => {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+};
+
+const AnswerItem = ({ answer }) => {
   return (
     <div>
       <span>{answer.body}</span>
       <br />
-      by {answer['answerer_name']}
+      by {answer.answerer_name}
       {', '}
-      {new Date(answer.date).formatted()} | Helpful?{' '}
-      <a href="#" style={{ color: '#919191' }}>
+      {dateFormatter(answer.date)} | Helpful?{' '}
+      <button type="button" style={{ color: '#919191' }}>
         Yes
-      </a>
+      </button>
       ({answer.helpfulness}) |{' '}
-      <a href="#" style={{ color: '#919191' }}>
+      <button type="button" style={{ color: '#919191' }}>
         report
-      </a>
+      </button>
     </div>
   );
 };
+
+export default AnswerItem;

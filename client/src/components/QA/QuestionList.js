@@ -1,7 +1,7 @@
 import React from 'react';
-import { QuestionItem } from './QuestionItem';
+import QuestionItem from './QuestionItem';
 
-export const QuestionList = ({ questions }) => {
+const QuestionList = ({ questions }) => {
   return (
     <div>
       {questions.map((question) => {
@@ -12,3 +12,5 @@ export const QuestionList = ({ questions }) => {
     </div>
   );
 };
+
+export default QuestionList;

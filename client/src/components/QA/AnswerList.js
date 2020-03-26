@@ -1,7 +1,7 @@
 import React from 'react';
-import { AnswerItem } from './AnswerItem';
+import AnswerItem from './AnswerItem';
 
-export const AnswerList = ({ answers }) => {
+const AnswerList = ({ answers }) => {
   return (
     <div id="answerList">
       {answers.map((answer) => (
@@ -10,3 +10,5 @@ export const AnswerList = ({ answers }) => {
     </div>
   );
 };
+
+export default AnswerList;

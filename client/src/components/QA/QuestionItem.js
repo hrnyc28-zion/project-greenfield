@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { AnswerList } from './AnswerList';
+import AnswerList from './AnswerList';
 
-export const QuestionItem = ({ currentQuestion }) => {
+const QuestionItem = ({ currentQuestion }) => {
   const {
     question_body: title,
-    question_id: id,
-    question_date: date,
+    // question_id: id,
+    // question_date: date,
     question_helpfulness: helpfulness,
-    reported,
+    // reported,
     answers
   } = currentQuestion;
 
-  var [answerPaginate, setanswerPaginate] = useState(2);
+  const [answerPaginate, setanswerPaginate] = useState(2);
 
   const sortedAnswers = Object.values(answers).sort((a, b) =>
     a.helpfulness > b.helpfulness ? -1 : 0
@@ -28,19 +28,25 @@ export const QuestionItem = ({ currentQuestion }) => {
       <h3>Q: {title}</h3>
       <div className="sideAction">
         Helpful?{' '}
-        <a href="#" style={{ color: '#919191' }}>
+        <button type="button" style={{ color: '#919191' }}>
           Yes
-        </a>
+        </button>
         ({helpfulness}) |{' '}
-        <a href="#" style={{ color: '#919191' }}>
+        <button type="button" style={{ color: '#919191' }}>
           Add Answer
-        </a>
+        </button>
       </div>
       <span style={{ fontSize: 20, fontWeight: 'bold' }}>A: </span>
       <AnswerList answers={sortedAnswers.slice(0, answerPaginate)} />
       {!(
         sortedAnswers.length <= 2 || answerPaginate >= sortedAnswers.length
-      ) && <button onClick={handleLoadMoreAnswer}>LOAD MORE ANSWERS</button>}
+      ) && (
+        <button type="button" onClick={handleLoadMoreAnswer}>
+          LOAD MORE ANSWERS
+        </button>
+      )}
     </div>
   );
 };
+
+export default QuestionItem;

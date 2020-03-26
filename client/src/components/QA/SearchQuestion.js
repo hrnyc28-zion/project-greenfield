@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SearchQuestion = () => {
+const SearchQuestion = () => {
   return (
     <div>
       <input
@@ -11,3 +11,5 @@ export const SearchQuestion = () => {
     </div>
   );
 };
+
+export default SearchQuestion;
