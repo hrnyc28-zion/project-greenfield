@@ -5,7 +5,7 @@ const fetchByURL = async (url) => {
     const response = await fetch(url);
     return response.json();
   } catch (err) {
-    console.log(`Error: ${err}`);
+    throw new Error(err);
   }
 };
 
@@ -20,16 +20,16 @@ const postByURL = async (url, data) => {
     });
     return response.json();
   } catch (err) {
-    console.log(`Error: ${err}`);
+    throw new Error(err);
   }
 };
 
 const putByURL = async (url) => {
   try {
     const response = await fetch(url, { method: 'PUT' });
-    return response.status === 204 ? true : false;
+    return response.status === 204;
   } catch (err) {
-    console.log(`Error: ${err}`);
+    throw new Error(err);
   }
 };
 
