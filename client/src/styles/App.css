@@ -62,7 +62,6 @@ table th {
   left: 0;
   white-space: nowrap;
   overflow: hidden;
-  /* width: 90%; */
 }
 
 .stars-inner::before {
@@ -77,4 +76,8 @@ table th {
   to {
     transform: rotate(360deg);
   }
+.reviews {
+  border: 5px;
+  border-color: black;
+  width: 50%;
 }
