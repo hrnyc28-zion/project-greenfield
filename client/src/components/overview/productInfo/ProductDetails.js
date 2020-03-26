@@ -11,7 +11,7 @@ const ProductDetails = ({
     <div>
       <h2>{name}</h2>
     </div>
-    <div>{salePrice || originalPrice}</div>
+    <div>{`$${salePrice || originalPrice}`}</div>
   </div>
 );
 
