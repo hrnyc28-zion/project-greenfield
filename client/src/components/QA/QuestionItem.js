@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AnswerList } from './AnswerList';
 
 export const QuestionItem = ({ currentQuestion }) => {
@@ -10,6 +10,18 @@ export const QuestionItem = ({ currentQuestion }) => {
     reported,
     answers
   } = currentQuestion;
+
+  var [answerPaginate, setanswerPaginate] = useState(2);
+
+  const sortedAnswers = Object.values(answers).sort((a, b) =>
+    a.helpfulness > b.helpfulness ? -1 : 0
+  );
+
+  const handleLoadMoreAnswer = () => {
+    if (answerPaginate < sortedAnswers.length - 1) {
+      setanswerPaginate(answerPaginate + 2);
+    }
+  };
 
   return (
     <div>
@@ -25,8 +37,10 @@ export const QuestionItem = ({ currentQuestion }) => {
         </a>
       </div>
       <span style={{ fontSize: 20, fontWeight: 'bold' }}>A: </span>
-      {/* <Answers answers={answers} /> */}
-      <AnswerList answers={answers} />
+      <AnswerList answers={sortedAnswers.slice(0, answerPaginate)} />
+      {!(
+        sortedAnswers.length <= 2 || answerPaginate >= sortedAnswers.length
+      ) && <button onClick={handleLoadMoreAnswer}>LOAD MORE ANSWERS</button>}
     </div>
   );
 };
