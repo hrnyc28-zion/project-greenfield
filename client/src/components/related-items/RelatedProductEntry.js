@@ -1,9 +1,13 @@
 import React from 'react';
 
-const RelatedProductsEntry = () => {
+const RelatedProductsEntry = ({ category, name, price, image }) => {
   return (
     <div>
-      <p>hi</p>
+      <button type="button">temp</button>
+      <img src={image} alt="product" />
+      <p>{category}</p>
+      <p>{name}</p>
+      <p>${price}</p>
     </div>
   );
 };

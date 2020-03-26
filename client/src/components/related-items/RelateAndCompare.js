@@ -14,7 +14,7 @@ class RelateAndCompare extends React.Component {
     return (
       <div>
         <RelatedProducts relatedProducts={data} />
-        <YourOutfit />
+        <YourOutfit savedOutfit={data} />
         <ComparisonModal />
       </div>
     );
