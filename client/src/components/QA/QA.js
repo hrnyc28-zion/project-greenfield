@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import API from '../../api/qa';
+import QA_API from '../../api/qa';
 import { SearchQuestion } from './SearchQuestion';
 import { QuestionList } from './QuestionList';
 
@@ -7,7 +7,7 @@ export const QA = () => {
   var [questions, setQuestions] = useState([]);
 
   const updateQuestions = async () => {
-    const response = await API.fetchAllQuestions(56);
+    const response = await QA_API.fetchAllQuestions(8);
     setQuestions(response.results);
   };
 
