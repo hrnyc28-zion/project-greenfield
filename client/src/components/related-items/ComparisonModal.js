@@ -6,11 +6,13 @@ const ComparisonModal = () => {
     <div>
       <p>Comparing</p>
       <table>
-        <tr>
-          <th>current product</th>
-          <th>features</th>
-          <th>compared product</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>current product</th>
+            <th>features</th>
+            <th>compared product</th>
+          </tr>
+        </thead>
         <Features />
       </table>
     </div>

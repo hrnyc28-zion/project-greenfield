@@ -18,6 +18,7 @@ const RelatedProducts = ({ relatedProducts }) => {
       {relatedProducts.map((product) => {
         return (
           <RelatedProductsEntry
+            key={product.id}
             image={getDefaultStyle(product.styles).photos[0].thumbnail_url}
             category={product.category}
             name={product.name}

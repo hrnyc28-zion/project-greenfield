@@ -18,6 +18,7 @@ const YourOutfit = ({ savedOutfit }) => {
       {savedOutfit.map((product) => {
         return (
           <YourOutfitEntry
+            key={product.id}
             image={getDefaultStyle(product.styles).photos[0].thumbnail_url}
             category={product.category}
             name={product.name}
