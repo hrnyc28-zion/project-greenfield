@@ -8,7 +8,7 @@ const defaultState = {
     photos: [],
     skus: {}
   },
-  thumbnailIndex: 0
+  thumbnailIndex: null
 };
 
 const selectedReducer = (state = defaultState, action) => {
