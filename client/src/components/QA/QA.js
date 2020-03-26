@@ -57,3 +57,11 @@ export const QA = () => {
     </div>
   );
 };
+
+Date.prototype.formatted = function () {
+  return this.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+};
