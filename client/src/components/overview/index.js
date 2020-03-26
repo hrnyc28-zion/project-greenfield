@@ -5,7 +5,6 @@ import ProductInfo from './productInfo';
 
 const Overview = ({ sampleStore: { selected, currentProduct, styles } }) => (
   <div data-testid="productOverview">
-    Overview component
     <ProductInfo
       selected={selected}
       currentProduct={currentProduct}

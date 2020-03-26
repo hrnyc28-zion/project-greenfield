@@ -5,7 +5,6 @@ import SocialCard from './SocialCard';
 
 const ProductInfo = ({ currentProduct, selected }) => (
   <div data-testid="productInfo">
-    ProductInfo component
     <section>
       <ProductRating currentProduct={currentProduct} />
     </section>
