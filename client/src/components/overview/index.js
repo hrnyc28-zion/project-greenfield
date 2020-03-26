@@ -1,10 +1,9 @@
 import React from 'react';
 import ProductInfo from './productInfo';
-import sampleStore from '../../sampleData/sampleStore';
 
-const { selected, currentProduct, styles } = sampleStore;
+// const { selected, currentProduct, styles } = sampleStore;
 
-const Overview = () => (
+const Overview = ({ sampleStore: { selected, currentProduct, styles } }) => (
   <div data-testid="productOverview">
     Overview component
     <ProductInfo
