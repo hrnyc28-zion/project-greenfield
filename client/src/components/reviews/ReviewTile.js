@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewTile = (reviewObj) => {
   return (
-    <td>
+    <td data-testid="reviewTile">
       <p>{reviewObj.summary}</p>
       <p>{reviewObj.body}</p>
       <p>{reviewObj.reviewer_name}</p>
