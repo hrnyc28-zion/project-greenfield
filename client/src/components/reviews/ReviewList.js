@@ -3,9 +3,9 @@ import ReviewTile from './ReviewTile.js';
 
 const ReviewList = ({ reviewList }) => {
   return (
-    <div>
+    <div data-testid="reviewList">
       <h2>
-        {reviewList.results.length} reviews, sorted by{' '}
+        {reviewList.reviewData.length} reviews, sorted by{' '}
         <select>
           <option value="helpful">Helpful</option>
           <option value="newest">Newest</option>
@@ -14,7 +14,7 @@ const ReviewList = ({ reviewList }) => {
       </h2>
       <table className="reviews">
         <tbody>
-          {reviewList.results.map((review) => (
+          {reviewList.reviewData.map((review) => (
             <tr>
               <ReviewTile key={review.review_id} {...review} />
             </tr>

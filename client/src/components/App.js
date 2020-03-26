@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/App.css';
-import ReviewList from './reviews/ReviewList.js';
+import ReviewWidget from './reviews/index.js';
 
 function App() {
   return (
     <div className="App">
-      <ReviewList reviewList={dummyData} />
+      <ReviewWidget reviewData={dummyData.results} />
     </div>
   );
 }
