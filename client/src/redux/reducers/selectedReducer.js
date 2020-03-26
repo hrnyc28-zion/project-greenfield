@@ -1,4 +1,17 @@
-const selectedReducer = (state, action) => {
+const defaultState = {
+  style: {
+    style_id: null,
+    name: '',
+    original_price: '',
+    sale_price: '',
+    'default?': null,
+    photos: [],
+    skus: {}
+  },
+  thumbnailIndex: 0
+};
+
+const selectedReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'SELECT_STYLE':
       return { ...state, style: action.payload };

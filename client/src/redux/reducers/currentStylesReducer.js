@@ -1,4 +1,4 @@
-const currentStylesReducer = (state, action) => {
+const currentStylesReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_STYLES':
       return action.payload;
