@@ -1,6 +1,7 @@
 import React from 'react';
-import YourOutfitEntry from './YourOutfitEntry';
+// import YourOutfitEntry from './YourOutfitEntry';
 
+/*
 const getDefaultStyle = (styles) => {
   let result = null;
   styles.forEach((style) => {
@@ -10,24 +11,34 @@ const getDefaultStyle = (styles) => {
   });
   return result;
 };
+*/
 
-const YourOutfit = ({ savedOutfit }) => {
+const YourOutfit = () => {
   return (
     <div>
       <p>Your Outfit</p>
-      {savedOutfit.map((product) => {
-        return (
-          <YourOutfitEntry
-            key={product.id}
-            image={getDefaultStyle(product.styles).photos[0].thumbnail_url}
-            category={product.category}
-            name={product.name}
-            price={getDefaultStyle(product.styles).original_price}
-          />
-        );
-      })}
+      <div>
+        <p>+</p>
+        <p>Add to Outfit</p>
+      </div>
     </div>
   );
 };
+/*
+<div>
+  <p>Your Outfit</p>
+  {savedOutfit.map((product) => {
+    return (
+      <YourOutfitEntry
+        key={product.id}
+        image={getDefaultStyle(product.styles).photos[0].thumbnail_url}
+        category={product.category}
+        name={product.name}
+        price={getDefaultStyle(product.styles).original_price}
+      />
+    );
+  })}
+</div>;
+*/
 
 export default YourOutfit;
