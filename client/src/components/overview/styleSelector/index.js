@@ -1,16 +1,15 @@
 import React from 'react';
 import StyleGrid from './StyleGrid';
 
-const StyleSelector = () => (
+const StyleSelector = ({ name, currentStyles }) => (
   <div data-testid="styleSelector">
-    StyleSelector component
     <div>
       <span>
         <strong>STYLE {'>'} </strong>
       </span>
-      SELECTED STYLE
+      {name}
     </div>
-    <StyleGrid />
+    <StyleGrid styles={currentStyles} />
   </div>
 );
 

@@ -1,9 +1,14 @@
 import React from 'react';
 import StyleEntry from './StyleEntry';
 
-const StyleGrid = () => (
-  <div data-testid="styleGrid">
-    StyleCard component <StyleEntry />
+const StyleGrid = ({ styles }) => (
+  <div
+    data-testid="styleGrid"
+    style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}
+  >
+    {styles.map((style) => (
+      <StyleEntry style={style} />
+    ))}
   </div>
 );
 
