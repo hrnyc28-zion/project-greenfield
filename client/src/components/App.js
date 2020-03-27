@@ -1,23 +1,20 @@
 import React from 'react';
-import '../styles/App.css';
+import sampleStore from '../sampleData/sampleStore';
+import Overview from './overview';
+import RelateAndCompare from './related-items/RelateAndCompare';
+import ReviewWidget from './reviews';
+import QA from './QA/QA';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Zion Greenfield</h1>
       </header>
+      <Overview sampleStore={sampleStore} />
+      <RelateAndCompare sampleStore={sampleStore} />
+      <ReviewWidget sampleStore={sampleStore} />
+      <QA />
     </div>
   );
 }

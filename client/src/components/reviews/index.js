@@ -3,17 +3,17 @@ import ReviewList from './ReviewList';
 import RatingsBreakdown from './RatingsBreakdown';
 import ProductBreakdown from './ProductBreakdown';
 
-const ReviewWidget = ({ reviewData, ratingsBreakdown, productBreakdown }) => (
+const ReviewWidget = ({ sampleStore }) => (
   <div data-testid="reviews">
     Reviews Components
     <section>
-      <ReviewList reviewList={reviewData} />
+      <ReviewList reviewList={sampleStore.reviewData} />
     </section>
     <section>
-      <RatingsBreakdown ratingsBreakdown={ratingsBreakdown} />
+      <RatingsBreakdown reviewData={sampleStore.reviewData} />
     </section>
     <section>
-      <ProductBreakdown productBreakdown={productBreakdown} />
+      <ProductBreakdown productBreakdown={sampleStore.reviewData} />
     </section>
   </div>
 );

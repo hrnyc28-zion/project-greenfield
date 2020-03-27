@@ -1,15 +1,16 @@
 import React from 'react';
 
-const ProductBreakdown = ({ productBreakdown }) => {
+const ProductBreakdown = () => {
+  // Add productBreakdown prop once it exists
   return (
     <div data-testid="productBreakdown">
       <table className="reviews">
         <tbody>
           <tr>
-            <td>Size: {productBreakdown.sizeRating}</td>
+            <td>Size: |---------^--| </td>
           </tr>
           <tr>
-            <td>Comfort: {productBreakdown.comfortRating}</td>
+            <td>Comfort:|---------^--| </td>
           </tr>
         </tbody>
       </table>
