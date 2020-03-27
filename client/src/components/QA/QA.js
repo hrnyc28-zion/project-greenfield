@@ -15,15 +15,26 @@ const QA = () => {
     updateQuestions();
   }, []);
 
+  const renderQuestionList = () => {
+    if (questions.length === 0) {
+      return <button type="button">Submit A New Question</button>;
+    }
+    return (
+      <div>
+        <QuestionList questions={questions} />
+        <div className="bottomButton">
+          <button type="button">MORE ANSWERED QUESTIONS</button>
+          <button type="button">ADD A QUESTION +</button>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div id="qa">
       <h1>QUESTIONS & ANSWERS</h1>
       <SearchQuestion />
-      {questions.length > 0 && <QuestionList questions={questions} />}
-      <div className="bottomButton">
-        <button type="button">MORE ANSWERED QUESTIONS</button>
-        <button type="button">ADD A QUESTION +</button>
-      </div>
+      {renderQuestionList()}
     </div>
   );
 };
