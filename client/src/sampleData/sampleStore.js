@@ -3,7 +3,7 @@ const sampleStore = {
   selected: {
     // current selected style
     style: {
-      style_id: 1,
+      style_id: 18,
       name: 'Forest Green & Black',
       original_price: '140',
       sale_price: '0',

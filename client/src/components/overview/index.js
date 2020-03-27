@@ -19,8 +19,9 @@ const Overview = ({
           currentStyles={currentStyles}
         />
         <StyleSelector
-          name={selected.style.name}
-          currentStyles={currentStyles}
+          selectedStyleName={selected.style.name}
+          selectedStyleId={selected.style.style_id}
+          styles={currentStyles}
         />
       </div>
     </div>

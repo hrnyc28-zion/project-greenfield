@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StyleEntry = ({ style }) => (
+const StyleEntry = ({ style, isSelected }) => (
   <div
     data-testid="styleEntry"
     style={{
@@ -15,17 +15,17 @@ const StyleEntry = ({ style }) => (
       backgroundPosition: '50% 50%'
     }}
   >
-    {/* <img
-      src={style.photos[0].thumbnail_url}
-      alt=""
-      style={{
-        border: '1px solid gray',
-        borderRadius: '20px',
-        margin: '5px',
-        maxWidth: '50px',
-        maxHeight: 'auto'
-      }}
-    /> */}
+    {isSelected && (
+      <div
+        style={{
+          float: 'right'
+        }}
+      >
+        <span role="img" aria-label="selected" style={{ fontSize: 15 }}>
+          ✔️
+        </span>
+      </div>
+    )}
   </div>
 );
 
