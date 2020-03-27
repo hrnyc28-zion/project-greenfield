@@ -13,6 +13,15 @@ const AnswerItem = ({ answer }) => {
     <div>
       <span>{answer.body}</span>
       <br />
+      {answer.photos.map((photoUrl) => (
+        <img
+          src={photoUrl}
+          alt=" "
+          style={{ width: '120px', height: '120px' }}
+          className="img-thumbnail"
+        />
+      ))}
+      <br />
       by {answer.answerer_name}
       {', '}
       {dateFormatter(answer.date)} | Helpful?{' '}
