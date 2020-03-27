@@ -25,11 +25,25 @@ const AnswerItem = ({ answer }) => {
       by {answer.answerer_name}
       {', '}
       {dateFormatter(answer.date)} | Helpful?{' '}
-      <button type="button" style={{ color: '#919191' }}>
+      <button
+        type="button"
+        style={{
+          color: '#919191',
+          border: 'none',
+          textDecoration: 'underline'
+        }}
+      >
         Yes
       </button>
       ({answer.helpfulness}) |{' '}
-      <button type="button" style={{ color: '#919191' }}>
+      <button
+        type="button"
+        style={{
+          color: '#919191',
+          border: 'none',
+          textDecoration: 'underline'
+        }}
+      >
         report
       </button>
     </div>

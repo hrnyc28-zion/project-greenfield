@@ -23,8 +23,12 @@ const QA = () => {
       <div>
         <QuestionList questions={questions} />
         <div className="bottomButton">
-          <button type="button">MORE ANSWERED QUESTIONS</button>
-          <button type="button">ADD A QUESTION +</button>
+          <button className="btn btn-outline-secondary" type="button">
+            MORE ANSWERED QUESTIONS
+          </button>
+          <button className="btn btn-outline-secondary ml-2" type="button">
+            ADD A QUESTION +
+          </button>
         </div>
       </div>
     );
