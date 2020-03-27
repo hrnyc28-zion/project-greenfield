@@ -2,10 +2,11 @@ import React from 'react';
 import ReviewList from './ReviewList';
 import RatingsBreakdown from './RatingsBreakdown';
 import ProductBreakdown from './ProductBreakdown';
+import data from '../../sampleData/sampleStore';
 
 class ReviewWidget extends React.Component {
-  constructor({ sampleStore }) {
-    super(sampleStore);
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
@@ -14,13 +15,13 @@ class ReviewWidget extends React.Component {
       <div data-testid="reviews">
         Reviews Components
         <section>
-          <ReviewList reviewList={this.sampleStore.reviewData} />
+          <ReviewList reviewList={data.reviewData} />
         </section>
         <section>
-          <RatingsBreakdown reviewData={this.sampleStore.reviewData} />
+          <RatingsBreakdown reviewData={data.reviewData} />
         </section>
         <section>
-          <ProductBreakdown productBreakdown={this.sampleStore.reviewData} />
+          <ProductBreakdown productBreakdown={data.reviewData} />
         </section>
       </div>
     );
