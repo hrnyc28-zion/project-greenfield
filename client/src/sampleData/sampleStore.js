@@ -110,6 +110,105 @@ const sampleStore = {
         XL: 15,
         XXL: 6
       }
+    },
+    {
+      style_id: 57,
+      name: 'Turquoise',
+      original_price: '174',
+      sale_price: '59',
+      'default?': 1,
+      photos: [
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1479756212843-6314ad5121dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1461551449292-b63f7419ac93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1970&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1511&q=80'
+        }
+      ],
+      skus: {
+        XS: 11,
+        S: 33,
+        M: 1,
+        L: 51,
+        XL: 55,
+        XXL: 19
+      }
+    },
+    {
+      style_id: 58,
+      name: 'Grey',
+      original_price: '192',
+      sale_price: '0',
+      'default?': 0,
+      photos: [
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1426647451887-5f2be01918a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1515992854631-13de43baeba1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80'
+        }
+      ],
+      skus: {
+        XS: 4,
+        S: 0,
+        M: 48,
+        L: 6,
+        XL: 48,
+        XXL: 43
+      }
+    },
+    {
+      style_id: 59,
+      name: 'Maroon',
+      original_price: '174',
+      sale_price: '0',
+      'default?': 0,
+      photos: [
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1519862170344-6cd5e49cb996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1479756212843-6314ad5121dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1515243061678-14fc18b93935?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+        }
+      ],
+      skus: {
+        XS: 8,
+        S: 0,
+        M: 28,
+        L: 49,
+        XL: 5,
+        XXL: 16
+      }
     }
   ],
 
