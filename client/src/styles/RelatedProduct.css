@@ -1,6 +1,6 @@
 .related-container {
-  margin: 20px auto 10px auto;
-  width: 75%;
+  margin: 20px auto 20px auto;
+  width: 70%;
 }
 
 .related-card {
@@ -13,7 +13,7 @@
 .outfit-card {
   border: 1px solid black;
   height: 310px;
-  width: 234px;
+  width: 216px;
   position: relative;
   margin-bottom: 50px;
 }
