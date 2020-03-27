@@ -65,46 +65,105 @@ const sampleStore = {
   // from Product API
   currentStyles: [
     {
-      style_id: 1,
-      name: 'Forest Green & Black',
-      original_price: '140',
+      style_id: 17,
+      name: 'Black',
+      original_price: '65',
       sale_price: '0',
       'default?': 1,
       photos: [
         {
-          thumbnail_url: 'urlplaceholder/style_1_photo_number_thumbnail.jpg',
-          url: 'urlplaceholder/style_1_photo_number.jpg'
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
         },
         {
-          thumbnail_url: 'urlplaceholder/style_1_photo_number_thumbnail.jpg',
-          url: 'urlplaceholder/style_1_photo_number.jpg'
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2760&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1511&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
         }
-        // ...
       ],
       skus: {
         XS: 8,
         S: 16,
         M: 17,
         L: 10,
+        XXL: 6,
         XL: 15
       }
     },
     {
-      style_id: 2,
-      name: 'Desert Brown & Tan',
-      original_price: '140',
+      style_id: 18,
+      name: 'Olive Green',
+      original_price: '65',
       sale_price: '0',
       'default?': 0,
       photos: [
         {
-          thumbnail_url: 'urlplaceholder/style_2_photo_number_thumbnail.jpg',
-          url: 'urlplaceholder/style_2_photo_number.jpg'
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1534481909716-9a482087f27d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1534481909716-9a482087f27d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2760&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1511&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
+        },
+        {
+          thumbnail_url:
+            'https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url:
+            'https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80'
         }
-        // ...
       ],
       skus: {
-        S: 16,
         XS: 8,
+        S: 16,
         M: 17,
         L: 10,
         XL: 15,
