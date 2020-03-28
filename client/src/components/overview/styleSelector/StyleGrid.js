@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import StyleEntry from './StyleEntry';
 
 const StyleGrid = ({ styles, selectedStyleId }) => {
@@ -17,4 +18,9 @@ const StyleGrid = ({ styles, selectedStyleId }) => {
   );
 };
 
-export default StyleGrid;
+const mapStateToProps = (state) => ({
+  styles: state.currentStyles,
+  selectedStyleId: state.selected.style.style_id
+});
+
+export default connect(mapStateToProps)(StyleGrid);

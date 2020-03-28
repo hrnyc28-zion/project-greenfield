@@ -7,9 +7,7 @@ import CartForm from './cartForm';
 
 // const { selected, currentProduct, styles } = sampleStore;
 
-const Overview = ({
-  sampleStore: { selected, currentProduct, currentStyles }
-}) => (
+const Overview = ({ sampleStore: { selected, currentProduct } }) => (
   <div data-testid="productOverview">
     <div className="row">
       <div className="col-md-8">
@@ -17,11 +15,7 @@ const Overview = ({
       </div>
       <div className="col-md-4">
         <ProductInfo currentProduct={currentProduct} />
-        <StyleSelector
-          selectedStyleName={selected.style.name}
-          selectedStyleId={selected.style.style_id}
-          styles={currentStyles}
-        />
+        <StyleSelector />
         <CartForm selectedStyle={selected.style} />
       </div>
     </div>
