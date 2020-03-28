@@ -3,10 +3,10 @@ import ProductRating from './ProductRating';
 import ProductDetails from './ProductDetails';
 import SocialCard from './SocialCard';
 
-const ProductInfo = ({ currentProduct }) => (
+const ProductInfo = () => (
   <div data-testid="productInfo">
     <section>
-      <ProductRating rating={currentProduct.rating} />
+      <ProductRating />
     </section>
     <section>
       <ProductDetails />
