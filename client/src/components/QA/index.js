@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import QA_API from '../../api/qa';
 import SearchQuestion from './Search/SearchQuestion';
 import QuestionList from './Questions/QuestionList';
 
-const QA = () => {
+const QA = ({ id }) => {
   const [questions, setQuestions] = useState([]);
 
   const updateQuestions = async () => {
@@ -44,4 +45,8 @@ const QA = () => {
   );
 };
 
-export default QA;
+const mapStatetoProps = (state) => ({
+  id: state.currentProduct.id
+});
+
+export default connect(mapStatetoProps, null)(QA);
