@@ -16,11 +16,7 @@ const Overview = ({
         <ImageGallery selected={selected} />
       </div>
       <div className="col-md-4">
-        <ProductInfo
-          selected={selected}
-          currentProduct={currentProduct}
-          currentStyles={currentStyles}
-        />
+        <ProductInfo currentProduct={currentProduct} />
         <StyleSelector
           selectedStyleName={selected.style.name}
           selectedStyleId={selected.style.style_id}
