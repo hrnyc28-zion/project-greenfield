@@ -11,13 +11,11 @@ const RatingStars = ({ rating }) => {
   };
 
   return (
-    <div data-classid="ratingStars">
-      <section className="ratingStars">
-        <div className="stars-outer">
-          <div className="stars-inner" style={styles} />
-        </div>
-      </section>
-    </div>
+    <span data-classid="ratingStars">
+      <span className="stars-outer">
+        <span className="stars-inner" style={styles} />
+      </span>
+    </span>
   );
 };
 
