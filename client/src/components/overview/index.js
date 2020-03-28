@@ -11,10 +11,10 @@ const Overview = ({ sampleStore: { selected, currentProduct } }) => (
   <div data-testid="productOverview">
     <div className="row">
       <div className="col-md-8">
-        <ImageGallery selected={selected} />
+        <ImageGallery />
       </div>
       <div className="col-md-4">
-        <ProductInfo currentProduct={currentProduct} />
+        <ProductInfo />
         <StyleSelector />
         <CartForm selectedStyle={selected.style} />
       </div>

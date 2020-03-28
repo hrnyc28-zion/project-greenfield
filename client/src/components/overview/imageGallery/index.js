@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const ImageGallery = ({ selected: { style, thumbnailIndex } }) => {
+const ImageGallery = ({ style, thumbnailIndex }) => {
   const { url } = style.photos[thumbnailIndex];
   return (
     <div data-testid="imageGallery">
@@ -9,4 +10,10 @@ const ImageGallery = ({ selected: { style, thumbnailIndex } }) => {
   );
 };
 
-export default ImageGallery;
+const mapStateToProps = (state) => ({
+  style: state.selected.style,
+  thumbnailIndex: state.selected.thumbnailIndex
+});
+
+export default connect(mapStateToProps)(ImageGallery);
+// export default ImageGallery;
