@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectStyle } from '../../../redux/actions/selected';
+import { setStyle } from '../../../redux/actions/selected';
 import StyleEntry from './StyleEntry';
 
-const StyleGrid = ({ styles, selectedStyleId }) => {
+const StyleGrid = ({ styles, selectedStyleId, setStyle }) => {
   return (
     <div
       data-testid="styleGrid"
@@ -11,8 +11,9 @@ const StyleGrid = ({ styles, selectedStyleId }) => {
     >
       {styles.map((style) => (
         <StyleEntry
-          style={style}
+          thumbnailUrl={style.photos[0].thumbnail_url}
           isSelected={selectedStyleId === style.style_id}
+          handleClick={() => setStyle(style)}
         />
       ))}
     </div>
@@ -24,4 +25,8 @@ const mapStateToProps = (state) => ({
   selectedStyleId: state.selected.style.style_id
 });
 
-export default connect(mapStateToProps)(StyleGrid);
+const mapDispatchToProps = (dispatch) => ({
+  setStyle: (id) => dispatch(setStyle(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StyleGrid);
