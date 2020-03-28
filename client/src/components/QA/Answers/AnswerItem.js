@@ -13,14 +13,27 @@ const AnswerItem = ({ answer }) => {
   const [helpfulness, setHelpfulness] = useState(answer.helpfulness);
 
   const handleAnswerHelpful = async () => {
-    const answerInfo = localStorage.getItem(answer.id);
-    if (!answerInfo) {
+    const answerInfo = JSON.parse(localStorage.getItem(answer.id));
+    if (!answerInfo || !answerInfo.votedAnswerHelp) {
       const response = await QA_API.markAnswerHelpful(answer.id);
       if (!response.error) {
         setHelpfulness(helpfulness + 1);
         localStorage.setItem(
           answer.id,
-          JSON.stringify({ votedAnswerHelp: true })
+          JSON.stringify({ ...answerInfo, votedAnswerHelp: true })
+        );
+      }
+    }
+  };
+
+  const handleReportAnswer = async () => {
+    const answerInfo = JSON.parse(localStorage.getItem(answer.id));
+    if (!answerInfo || !answerInfo.answerReported) {
+      const response = await QA_API.markAnswerHelpful(answer.id);
+      if (!response.error) {
+        localStorage.setItem(
+          answer.id,
+          JSON.stringify({ ...answerInfo, answerReported: true })
         );
       }
     }
@@ -63,6 +76,7 @@ const AnswerItem = ({ answer }) => {
           textDecoration: 'underline',
           outline: 'none'
         }}
+        onClick={handleReportAnswer}
       >
         report
       </button>
