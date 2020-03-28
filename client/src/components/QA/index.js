@@ -7,8 +7,8 @@ const QA = () => {
   const [questions, setQuestions] = useState([]);
 
   const updateQuestions = async () => {
-    // const response = await QA_API.fetchAllQuestions(10);
-    // setQuestions(response.results);
+    const response = await QA_API.fetchAllQuestions(10);
+    setQuestions(response.results);
   };
 
   useEffect(() => {
