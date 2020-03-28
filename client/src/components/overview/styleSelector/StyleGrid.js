@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectStyle } from '../../../redux/actions/selected';
 import StyleEntry from './StyleEntry';
 
 const StyleGrid = ({ styles, selectedStyleId }) => {
