@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import QA_API from '../../api/qa';
 import SearchQuestion from './Search/SearchQuestion';
 import QuestionList from './Questions/QuestionList';
+import changeProduct from '../../redux/actions/changeProduct';
 
-const QA = ({ id }) => {
+const QA = ({ storeQuestions, initQuestionsInStore }) => {
   const [questions, setQuestions] = useState([]);
 
-  const updateQuestions = async () => {
-    const response = await QA_API.fetchAllQuestions(10);
-    if (response.error) return;
-    setQuestions(response.results);
-  };
+  useEffect(() => {
+    initQuestionsInStore();
+  });
 
   useEffect(() => {
-    updateQuestions();
-  }, []);
+    setQuestions(storeQuestions);
+  }, [storeQuestions]);
 
   const renderQuestionList = () => {
     if (questions.length === 0) {
@@ -46,7 +44,13 @@ const QA = ({ id }) => {
 };
 
 const mapStatetoProps = (state) => ({
-  id: state.currentProduct.id
+  storeQuestions: state.currentQuestion
 });
 
-export default connect(mapStatetoProps, null)(QA);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    initQuestionsInStore: () => dispatch(changeProduct(13))
+  };
+};
+
+export default connect(mapStatetoProps, mapDispatchToProps)(QA);
