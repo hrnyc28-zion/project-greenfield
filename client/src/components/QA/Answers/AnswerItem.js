@@ -45,6 +45,7 @@ const AnswerItem = ({ answer }) => {
       <br />
       {answer.photos.map((photoUrl) => (
         <img
+          key={Math.random() * 1000}
           src={photoUrl}
           alt=" "
           style={{ width: '120px', height: '120px' }}

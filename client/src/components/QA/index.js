@@ -9,7 +9,7 @@ const QA = ({ storeQuestions, initQuestionsInStore }) => {
 
   useEffect(() => {
     initQuestionsInStore();
-  });
+  }, [initQuestionsInStore]);
 
   useEffect(() => {
     setQuestions(storeQuestions);
