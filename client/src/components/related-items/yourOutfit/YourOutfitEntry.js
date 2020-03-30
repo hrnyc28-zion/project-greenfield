@@ -1,4 +1,5 @@
 import React from 'react';
+import RatingStars from '../../RatingStars';
 
 const YourOutfitEntry = ({
   category,
@@ -33,7 +34,7 @@ const YourOutfitEntry = ({
         <p className="related-category">{category}</p>
         <p className="related-name">{name}</p>
         <p className="related-price">${price}</p>
-        ⭐⭐⭐⭐⭐
+        <RatingStars rating={5} />
       </div>
     </div>
   );

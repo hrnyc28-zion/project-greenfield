@@ -30,8 +30,6 @@ const ComparisonModal = ({ features, currentProduct, name }) => {
   // ]
 
   const combineFeatures = (current, related) => {
-    // input - two arrays of objs
-    // output - one array of objs
     const storage = {};
     const currentFeatures = getFeature(current);
     const relatedFeatures = getFeature(related);

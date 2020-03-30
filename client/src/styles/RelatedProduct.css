@@ -25,7 +25,7 @@
   /* height: 300px; */
   background: white;
   padding: 25px 30px 50px 30px;
-  box-shadow: 0 0 20px rgb(96, 96, 96);
+  box-shadow: 0 0 20px rgb(58, 58, 58);
 }
 
 .related-container {
@@ -55,7 +55,22 @@
 }
 
 .related-button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  outline: none;
   float: right;
+  color: rgb(255, 255, 255);
+}
+
+.related-button:hover {
+  color: rgb(252, 255, 49);
+  font-size: 130%;
+}
+
+.related-button:focus {
+  outline: none;
 }
 
 .related-image {
