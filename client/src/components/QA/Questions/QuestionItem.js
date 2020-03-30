@@ -41,8 +41,8 @@ const QuestionItem = ({ currentQuestion }) => {
   return (
     <div data-testid="questionItem">
       <div className="row">
-        <h3 className="col align-self-start">Q: {title}</h3>
-        <div className="col sideAction fcol align-self-end">
+        <h5 className="col align-self-start">Q: {title}</h5>
+        <div className="col-3 sideAction fcol align-self-end">
           Helpful?{' '}
           <button
             type="button"
@@ -71,8 +71,8 @@ const QuestionItem = ({ currentQuestion }) => {
         </div>
       </div>
       <div className="row">
-        <h3>A: </h3>
-        <div>
+        <h5 className="col-1 align-self-start">A: </h5>
+        <div className="col">
           <AnswerList answers={sortedAnswers.slice(0, answerPaginate)} />
           {!(
             sortedAnswers.length <= 2 ||
