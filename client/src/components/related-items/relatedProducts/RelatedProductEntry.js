@@ -18,8 +18,9 @@ const RelatedProductsEntry = ({
     let results = null;
     relatedStyles.forEach((style) => {
       if (Number(style.product_id) === productId) {
-        console.log('style--->', style);
-        results = style.results[0].photos[0].url;
+        if (style.results.length > 0) {
+          results = style.results[0].photos[0].url;
+        }
       }
     });
     return results;
@@ -28,7 +29,6 @@ const RelatedProductsEntry = ({
   const [isCompareClicked, toggleCompare] = useState(false);
 
   const { styles } = relatedProducts;
-  console.log('relatedProducts---->', relatedProducts);
 
   const imageStyle = {
     width: '100%',
