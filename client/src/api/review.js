@@ -14,38 +14,38 @@ const Reviews = {
   // 4. Mark helpful/report
   //    Implemented through puts
 
-  getReviews: (id, currPage = 0) => {
+  getReviews: (id, currPage = 1) => {
     return fetch(
-      `${baseURL}/${id}/list/?page=${currPage}&count=4&sort=newest`
+      `${baseURL}/reviews/${id}/list/?page=${currPage}&count=4&sort=newest`
     ).then((res) => {
       return res.json();
     });
   },
 
-  getReviewsByHelpful: (id, currPage = 0) => {
+  getReviewsByHelpful: (id, currPage = 1) => {
     return fetch(
-      `${baseURL}/${id}/list/?page=${currPage}&count=4&sort=helpful`
+      `${baseURL}/reviews/${id}/list/?page=${currPage}&count=4&sort=helpful`
     ).then((res) => {
       return res.json();
     });
   },
 
-  getReviewsByRelevant: (id, currPage = 0) => {
+  getReviewsByRelevant: (id, currPage = 1) => {
     return fetch(
-      `${baseURL}/${id}/list/?page=${currPage}&count=4&sort=relevant`
+      `${baseURL}/reviews/${id}/list/?page=${currPage}&count=4&sort=relevant`
     ).then((res) => {
       return res.json();
     });
   },
 
   getMetaData: (id) => {
-    return fetch(`${baseURL}/${id}/meta`).then((res) => {
+    return fetch(`${baseURL}/reviews/${id}/meta`).then((res) => {
       return res.json();
     });
   },
 
   postReview: (id, reviewObj) => {
-    return fetch(`${baseURL}/${id}/reviews`, {
+    return fetch(`${baseURL}/reviews/${id}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(reviewObj)

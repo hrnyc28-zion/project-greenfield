@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import ReviewList from './reviewList/ReviewList';
 import RatingsBreakdown from './ratingsBreakdown/RatingsBreakdown';
 import ProductBreakdown from './productBreakdown/ProductBreakdown';
@@ -10,6 +11,8 @@ class ReviewWidget extends React.Component {
     super(props);
     this.state = {};
   }
+
+  componentDidMount() {}
 
   render() {
     return (
