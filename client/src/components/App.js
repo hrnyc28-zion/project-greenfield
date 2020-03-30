@@ -8,7 +8,9 @@ import ReviewWidget from './reviews';
 import QA from './QA';
 
 function App({ initStore }) {
-  useEffect(() => initStore(1), []);
+  useEffect(() => {
+    initStore(17);
+  }, []);
 
   return (
     <div className="container">
