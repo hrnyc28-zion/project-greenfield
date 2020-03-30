@@ -10,7 +10,7 @@ import QA from './QA';
 function App({ initStore }) {
   useEffect(() => {
     initStore(17);
-  });
+  }, []);
 
   return (
     <div className="container">
