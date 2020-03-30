@@ -1,8 +1,8 @@
 import React from 'react';
-import { Formik, Field, useField, useFormikContext } from 'formik';
+import { Formik, Field } from 'formik';
 import { connect } from 'react-redux';
 
-const SizeSelect = ({ sizes }) => {
+const SizeSelect = ({ sizes, handleChange, setFieldValue }) => {
   return (
     <>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -12,12 +12,37 @@ const SizeSelect = ({ sizes }) => {
         as="select"
         className="form-control"
         disabled={sizes.length === 0}
+        onChange={(e) => {
+          handleChange(e);
+          setFieldValue('quantity', 1);
+        }}
       >
-        <option value="" disabled defaultValue hidden>
+        <option value="" key="" disabled hidden>
           {sizes.length === 0 ? 'out of stock' : 'select size'}
         </option>
         {sizes.map((sku) => (
-          <option value={sku}>{sku}</option>
+          <option key={sku} value={sku}>
+            {sku}
+          </option>
+        ))}
+      </Field>
+    </>
+  );
+};
+
+const QtySelect = ({ qty = 0 }) => {
+  return (
+    <>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label htmlFor="quantity" />
+      <Field name="quantity" as="select" className="form-control">
+        <option value="" disabled hidden>
+          -
+        </option>
+        {[...new Array(Math.min(qty, 15))].map((_, idx) => (
+          <option value={idx + 1} default={idx === 0}>
+            {idx + 1}
+          </option>
         ))}
       </Field>
     </>
@@ -28,43 +53,39 @@ const CartForm = ({ skus }) => {
   const skusInStock = {};
   // eslint-disable-next-line no-restricted-syntax
   for (const size in skus) {
-    // TODO: adjust this
     if (skus[size]) skusInStock[size] = skus[size];
   }
-  console.log(skus);
-  console.log(skusInStock);
   return (
-    <div data-testid="cartForm" className="container">
-      <Formik
-        onSubmit={(values) => console.log(values)}
-        initialValues={{ size: '', quantity: 1 }}
-      >
-        {(formik) => (
-          <form onSubmit={formik.handleSubmit}>
-            <div className="form-row">
-              <div className="col-md-7 form-group">
-                <SizeSelect sizes={Object.keys(skusInStock)} />
-              </div>
-              <div className="col-md-5 form-group">
-                <label htmlFor="quantity" />
-                <Field name="quantity" as="select" className="form-control">
-                  {[...new Array(skus[formik.values.size])].map((_, idx) => (
-                    <option value={idx + 1}>{idx + 1}</option>
-                  ))}
-                </Field>
-              </div>
+    <Formik
+      onSubmit={(values, { resetForm }) => {
+        resetForm();
+      }}
+      initialValues={{ size: '', quantity: '' }}
+    >
+      {(formik) => (
+        <form onSubmit={formik.handleSubmit} data-testid="cartForm">
+          <div className="form-row">
+            <div className="col-md-7 form-group">
+              <SizeSelect
+                sizes={Object.keys(skusInStock)}
+                handleChange={formik.handleChange}
+                setFieldValue={formik.setFieldValue}
+              />
             </div>
-            <div className="form-row">
-              <div className="col form-group">
-                <button type="submit" className="form-control">
-                  Submit
-                </button>
-              </div>
+            <div className="col-md-5 form-group">
+              <QtySelect qty={skus[formik.values.size]} />
             </div>
-          </form>
-        )}
-      </Formik>
-    </div>
+          </div>
+          <div className="form-row">
+            <div className="col form-group">
+              <button type="submit" className="form-control">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
+    </Formik>
   );
 };
 
