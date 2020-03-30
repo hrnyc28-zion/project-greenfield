@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
+import { connect } from 'react-redux';
 
-const CartForm = ({ selectedStyle: { skus } }) => {
+const CartForm = ({ skus }) => {
   return (
     <div data-testid="cartForm" className="container">
       <Formik
@@ -52,4 +53,7 @@ const CartForm = ({ selectedStyle: { skus } }) => {
     </div>
   );
 };
-export default CartForm;
+
+const mapStateToProps = (state) => ({ skus: state.selected.style.skus });
+
+export default connect(mapStateToProps)(CartForm);
