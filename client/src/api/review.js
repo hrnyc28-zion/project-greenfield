@@ -1,6 +1,6 @@
 const baseURL = 'http://3.134.102.30';
 
-const Review = {
+const Reviews = {
   // functionalities to support
   // 1. Write new review
   //    a. Title/summary capped at 60 chars
@@ -83,4 +83,4 @@ const Review = {
   }
 };
 
-export default Review;
+export default Reviews;
