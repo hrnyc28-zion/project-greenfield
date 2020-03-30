@@ -14,6 +14,7 @@ class ReviewWidget extends React.Component {
 
   render() {
     const { currentReviews, currentBreakdowns } = this.props;
+
     return (
       <div data-testid="reviews">
         <table>
@@ -32,7 +33,7 @@ class ReviewWidget extends React.Component {
             </td>
             <td>
               <section>
-                <ReviewList reviewList={currentReviews.reviewList || []} />
+                <ReviewList reviewList={currentReviews.results} />
               </section>
             </td>
           </tr>

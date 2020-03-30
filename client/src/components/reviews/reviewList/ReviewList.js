@@ -2,7 +2,6 @@ import React from 'react';
 import ReviewTile from './ReviewTile';
 
 const ReviewList = (reviews) => {
-  console.log('reviews equals ', reviews);
   return (
     <div data-testid="reviews">
       <h2>

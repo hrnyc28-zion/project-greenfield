@@ -1,28 +1,23 @@
 import React from 'react';
 import RatingStars from '../../RatingStars';
 
-const RatingsBreakdown = (metaData) => {
-  let aggregate = 0;
-  let numReviews = 0;
-  const ratingsBreakdown = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-
-  for (let i = 1; i < 6; i++) {
-    ratingsBreakdown[i] = metaData.rating;
-    numReviews += metaData.rating;
-    aggregate += i * metaData.rating;
-  }
-
-  ratingsBreakdown.overallRating = aggregate / numReviews;
+const RatingsBreakdown = ({ reviewData }) => {
+  const ratingsBreakdown = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    ...reviewData.ratings
+  };
+  console.log(ratingsBreakdown);
 
   return (
     <div data-testid="ratingsBreakdown">
       <table className="reviews">
         <tbody>
           <tr>
-            <td>
-              Overall Rating:{' '}
-              {Math.round(ratingsBreakdown.overallRating * 10) / 10}
-            </td>
+            <td>Overall Rating: {5}</td>
             <td>
               <RatingStars rating={2} />
             </td>
