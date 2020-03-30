@@ -28,7 +28,7 @@ function App({ initStore }) {
       <QA />
       <br />
       <br />
-      <ReviewWidget sampleStore={sampleStore} />
+      <ReviewWidget />
       <br />
       <br />
     </div>

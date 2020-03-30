@@ -1,15 +1,16 @@
 import React from 'react';
 import RatingStars from '../../RatingStars';
 
-const RatingsBreakdown = ({ reviewData }) => {
+const RatingsBreakdown = (metaData) => {
   let aggregate = 0;
-  const numReviews = reviewData.length;
-  const ratingsBreakdown = { overallRating: 0, 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+  let numReviews = 0;
+  const ratingsBreakdown = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
-  reviewData.forEach((review) => {
-    ratingsBreakdown[review.rating] += 1;
-    aggregate += review.rating;
-  });
+  for (let i = 1; i < 6; i++) {
+    ratingsBreakdown[i] = metaData.rating;
+    numReviews += metaData.rating;
+    aggregate += i * metaData.rating;
+  }
 
   ratingsBreakdown.overallRating = aggregate / numReviews;
 

@@ -3,18 +3,17 @@ import { connect } from 'react-redux';
 import ReviewList from './reviewList/ReviewList';
 import RatingsBreakdown from './ratingsBreakdown/RatingsBreakdown';
 import ProductBreakdown from './productBreakdown/ProductBreakdown';
-import data from '../../sampleData/sampleStore';
 import '../../styles/Reviews.css';
 
 class ReviewWidget extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {};
   }
 
-  componentDidMount() {}
-
   render() {
+    const { currentReviews, currentBreakdowns } = this.props;
     return (
       <div data-testid="reviews">
         <table>
@@ -25,15 +24,15 @@ class ReviewWidget extends React.Component {
           <tr>
             <td valign="top">
               <section>
-                <RatingsBreakdown reviewData={data.reviewData} />
+                <RatingsBreakdown reviewData={currentBreakdowns} />
               </section>
               <section>
-                <ProductBreakdown productBreakdown={data.reviewData} />
+                <ProductBreakdown productBreakdown={currentBreakdowns} />
               </section>
             </td>
             <td>
               <section>
-                <ReviewList reviewList={data.reviewData} />
+                <ReviewList reviewList={currentReviews.reviewList || []} />
               </section>
             </td>
           </tr>
@@ -43,4 +42,11 @@ class ReviewWidget extends React.Component {
   }
 }
 
-export default ReviewWidget;
+const mapStateToProps = (state) => {
+  return {
+    currentReviews: state.currentReviews,
+    currentBreakdowns: state.currentBreakdowns
+  };
+};
+
+export default connect(mapStateToProps)(ReviewWidget);

@@ -21,10 +21,10 @@ const changeProduct = (id) => {
     dispatch(setQuestions(questions.error ? [] : questions.results));
 
     const reviews = await Reviews.getReviews(id);
-    dispatch(setReviews(reviews.error ? [] : reviews.results));
+    dispatch(setReviews(reviews.error ? [] : reviews));
 
     const breakdowns = await Reviews.getMetaData(id);
-    dispatch(setBreakdowns(breakdowns.error ? [] : breakdowns.results));
+    dispatch(setBreakdowns(breakdowns.error ? [] : breakdowns));
   };
 };
 
