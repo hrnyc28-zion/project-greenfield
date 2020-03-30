@@ -17,7 +17,7 @@ function App({ initStore }) {
       <header>
         <h1>Zion Greenfield</h1>
       </header>
-      <Overview sampleStore={sampleStore} />
+      <Overview />
       <br />
       <br />
       <RelateAndCompare sampleStore={sampleStore} />
