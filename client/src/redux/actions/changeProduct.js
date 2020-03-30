@@ -3,6 +3,7 @@ import setCurrentProduct from './currentProduct';
 import setStyles from './styles';
 import { setStyle, setThumbnail } from './selected';
 import setQuestions from './setQuestions';
+import { getRelatedProduct } from './related';
 
 // Use API calls to init redux store
 const changeProduct = (id) => {
@@ -16,6 +17,7 @@ const changeProduct = (id) => {
     dispatch(setThumbnail(0));
     const questions = await QA.fetchAllQuestions(id);
     dispatch(setQuestions(questions.error ? [] : questions.results));
+    dispatch(getRelatedProduct(id));
   };
 };
 
