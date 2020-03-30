@@ -1,15 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Features = () => {
+import {
+  setProductsInfo,
+  getRelatedProduct
+} from '../../../redux/actions/related';
+
+const Features = ({ feature }) => {
   return (
-    <tbody data-testid="features">
-      <tr>
-        <td>current product</td>
-        <td>features</td>
-        <td>compared product</td>
-      </tr>
-    </tbody>
+    <div data-testid="features" className="row related-features">
+      <span className="col related-current-check">
+        {feature.current ? '✔️' : ''}
+      </span>
+      <span className="col-6 related-feature">{feature.description}</span>
+      <span className="col related-related-check">
+        {feature.related ? '✔️' : ''}
+      </span>
+    </div>
   );
 };
 
-export default Features;
+const mapStateToProps = (state) => {
+  return {
+    relatedProducts: state.relatedProducts,
+    currentProduct: state.currentProduct,
+    selected: state.selected
+  };
+};
+
+export default connect(mapStateToProps, {
+  _setProductsInfo: setProductsInfo,
+  _getRelatedProduct: getRelatedProduct
+})(Features);
