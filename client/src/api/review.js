@@ -39,9 +39,13 @@ const Reviews = {
   },
 
   getMetaData: (id) => {
-    return fetch(`${baseURL}/reviews/${id}/meta`).then((res) => {
-      return res.json();
-    });
+    return fetch(`${baseURL}/reviews/${id}/meta`)
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.error('An error occured fetching metadata, ', err);
+      });
   },
 
   postReview: (id, reviewObj) => {
