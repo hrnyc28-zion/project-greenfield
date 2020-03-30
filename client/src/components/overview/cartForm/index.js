@@ -1,6 +1,16 @@
 import React from 'react';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, useField } from 'formik';
 import { connect } from 'react-redux';
+
+// const SizeSelect = ({ label, ...props}) => {
+//   const [field, meta] = useField(props);
+//   return (
+//     <label>
+//     <input name="size">
+//     </input>
+//     </label>
+//   )
+// }
 
 const CartForm = ({ skus }) => {
   return (
@@ -9,46 +19,40 @@ const CartForm = ({ skus }) => {
         onSubmit={(values) => console.log(values)}
         initialValues={{ size: '', quantity: 1 }}
       >
-        <Form>
-          <div className="form-row">
-            <div className="col-md-7 form-group">
-              <label htmlFor="size"> </label>
-              <Field
-                name="size"
-                as="select"
-                placeholder="select size"
-                className="form-control"
-              >
-                <option value="" disabled defaultValue hidden>
-                  select size
-                </option>
-                {Object.keys(skus).map((sku) => (
-                  <option value={sku}>{sku}</option>
-                ))}
-              </Field>
+        {(formik) => (
+          <form onSubmit={formik.handleSubmit}>
+            <div className="form-row">
+              <div className="col-md-7 form-group">
+                <label htmlFor="size">
+                  <Field name="size" as="select" className="form-control">
+                    <option value="" disabled defaultValue hidden>
+                      select size
+                    </option>
+                    {Object.keys(skus).map((sku) => (
+                      <option value={sku}>{sku}</option>
+                    ))}
+                  </Field>
+                </label>
+              </div>
+              <div className="col-md-5 form-group">
+                <label htmlFor="quantity">
+                  <Field name="quantity" as="select" className="form-control">
+                    {[...new Array(skus[formik.values.size])].map((_, idx) => (
+                      <option value={idx + 1}>{idx + 1}</option>
+                    ))}
+                  </Field>
+                </label>
+              </div>
             </div>
-            <div className="col-md-5 form-group">
-              <label htmlFor="quantity"> </label>
-              <Field
-                name="quantity"
-                as="select"
-                placeholder="select quantity"
-                className="form-control"
-              >
-                {new Array(5).fill(null).map((_, idx) => (
-                  <option value={idx + 1}>{idx + 1}</option>
-                ))}
-              </Field>
+            <div className="form-row">
+              <div className="col form-group">
+                <button type="submit" className="form-control">
+                  Submit
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="form-row">
-            <div className="col form-group">
-              <button type="submit" className="form-control">
-                Submit
-              </button>
-            </div>
-          </div>
-        </Form>
+          </form>
+        )}
       </Formik>
     </div>
   );
