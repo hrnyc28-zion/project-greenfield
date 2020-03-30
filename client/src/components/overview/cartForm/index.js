@@ -78,8 +78,12 @@ const CartForm = ({ skus }) => {
           </div>
           <div className="form-row">
             <div className="col form-group">
-              <button type="submit" className="form-control">
-                Add to Cart
+              <button
+                type="submit"
+                className="form-control"
+                hidden={Object.keys(skusInStock).length === 0}
+              >
+                add to cart
               </button>
             </div>
           </div>
