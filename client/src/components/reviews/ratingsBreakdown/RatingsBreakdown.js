@@ -10,16 +10,15 @@ const RatingsBreakdown = ({ reviewData }) => {
     5: 0,
     ...reviewData.ratings
   };
-  console.log(ratingsBreakdown);
 
   return (
     <div data-testid="ratingsBreakdown">
       <table className="reviews">
         <tbody>
           <tr>
-            <td>Overall Rating: {5}</td>
+            <td>Overall Rating: {reviewData.productRating}</td>
             <td>
-              <RatingStars rating={2} />
+              <RatingStars rating={reviewData.productRating} />
             </td>
           </tr>
           <tr>
