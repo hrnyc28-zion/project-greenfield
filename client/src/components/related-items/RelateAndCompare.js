@@ -13,33 +13,15 @@ class RelateAndCompare extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      outfit: [
-        {
-          id: 20,
-          name: 'Lukas 1000 Hoodie',
-          category: 'Hoodie',
-          price: '258',
-          thumbnail_url:
-            'https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'
-        },
-        {
-          id: 0,
-          name: 'Alphonso 1050 Shirt',
-          category: 'Shirt',
-          price: '900',
-          rating: '',
-          thumbnail_url:
-            'https://images.unsplash.com/photo-1519857609704-61e751edba25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80'
-        }
-      ]
+      outfit: []
     };
     this.addOutfitHandler = this.addOutfitHandler.bind(this);
     this.deleteOutfitHandler = this.deleteOutfitHandler.bind(this);
   }
 
   componentDidMount() {
-    const { currentProduct, _getRelatedProduct } = this.props;
-    _getRelatedProduct(currentProduct.id);
+    // const { currentProduct, _getRelatedProduct } = this.props;
+    // _getRelatedProduct(currentProduct.id);
     const storage = localStorage.getItem('yourOutfit');
     if (storage !== null) {
       this.setState({ outfit: JSON.parse(storage) });

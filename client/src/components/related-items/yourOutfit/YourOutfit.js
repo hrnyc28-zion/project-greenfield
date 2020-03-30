@@ -21,7 +21,6 @@ const YourOutfit = ({ outfit, addOutfitHandler, deleteOutfitHandler }) => {
         <div style={{ width: (outfit.length + 1) * 275 }}>
           <AddOutfit addOutfitHandler={addOutfitHandler} />
           {outfit.map((product) => {
-            console.log(product);
             return (
               <YourOutfitEntry
                 key={product.id}
