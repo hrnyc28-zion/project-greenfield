@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SearchQuestion from './Search/SearchQuestion';
 import QuestionList from './Questions/QuestionList';
 import changeProduct from '../../redux/actions/changeProduct';
-import ModalForm from './Modal/ModalForm';
+import QuestionModalForm from './Modal/QuestionModalForm';
 
 const QA = ({ storeQuestions, initQuestionsInStore }) => {
   const [questions, setQuestions] = useState([]);
@@ -27,7 +27,7 @@ const QA = ({ storeQuestions, initQuestionsInStore }) => {
   };
 
   const handleLoadMoreQuestion = () => {
-    if (questionPaginate < questions.length - 1) {
+    if (questionPaginate <= questions.length - 1) {
       setQuestionPaginate(questionPaginate + 2);
     }
   };
@@ -48,9 +48,7 @@ const QA = ({ storeQuestions, initQuestionsInStore }) => {
       <div>
         <QuestionList questions={questions.slice(0, questionPaginate)} />
         <div className="bottomButton">
-          {!(
-            questions.length <= 2 || questionPaginate >= questions.length - 1
-          ) && (
+          {!(questions.length <= 2 || questionPaginate >= questions.length) && (
             <button
               className="btn btn-outline-secondary"
               type="button"
@@ -76,20 +74,9 @@ const QA = ({ storeQuestions, initQuestionsInStore }) => {
       <h1>QUESTIONS & ANSWERS</h1>
       <SearchQuestion />
       {/* {FIXME: Console err: findDOMNode is deprecated in StrictMode} */}
-      <ModalForm
+      <QuestionModalForm
         show={showAddQuestion}
         handleClose={handleAddQuestionModalClose}
-        content={{
-          title: 'Ask Your Question',
-          subtitle: 'About the [Product Name]',
-          body: [
-            {
-              labelName: 'Your Question',
-              inputType: 'text',
-              placeholder: 'test'
-            }
-          ]
-        }}
       />
       {renderQuestionList()}
     </div>
@@ -102,7 +89,7 @@ const mapStatetoProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initQuestionsInStore: () => dispatch(changeProduct(13))
+    initQuestionsInStore: () => dispatch(changeProduct(11))
   };
 };
 
