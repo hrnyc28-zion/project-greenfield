@@ -8,7 +8,7 @@ import ReviewWidget from './reviews';
 import QA from './QA';
 
 function App({ initStore }) {
-  initStore();
+  initStore(17);
 
   return (
     <div className="container">
@@ -35,7 +35,7 @@ function App({ initStore }) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initStore: () => dispatch(changeProduct(13))
+    initStore: () => dispatch(changeProduct)
   };
 };
 

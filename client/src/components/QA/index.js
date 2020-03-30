@@ -2,16 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import SearchQuestion from './Search/SearchQuestion';
 import QuestionList from './Questions/QuestionList';
-import changeProduct from '../../redux/actions/changeProduct';
 import ModalForm from './Modal/ModalForm';
 
-const QA = ({ storeQuestions, initQuestionsInStore }) => {
+const QA = ({ storeQuestions }) => {
   const [questions, setQuestions] = useState([]);
   const [showAddQuestion, setshowAddQuestion] = useState(false);
-
-  useEffect(() => {
-    initQuestionsInStore();
-  }, [initQuestionsInStore]);
 
   useEffect(() => {
     setQuestions(storeQuestions);
@@ -85,10 +80,4 @@ const mapStatetoProps = (state) => ({
   storeQuestions: state.currentQuestion
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    initQuestionsInStore: () => dispatch(changeProduct(13))
-  };
-};
-
-export default connect(mapStatetoProps, mapDispatchToProps)(QA);
+export default connect(mapStatetoProps, null)(QA);
