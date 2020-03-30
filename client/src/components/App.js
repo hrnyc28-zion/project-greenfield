@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import changeProduct from '../redux/actions/changeProduct';
 import sampleStore from '../sampleData/sampleStore';
@@ -8,7 +8,9 @@ import ReviewWidget from './reviews';
 import QA from './QA';
 
 function App({ initStore }) {
-  initStore();
+  useEffect(() => {
+    initStore(17);
+  }, []);
 
   return (
     <div className="container">
@@ -35,7 +37,7 @@ function App({ initStore }) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initStore: () => dispatch(changeProduct(13))
+    initStore: (id) => dispatch(changeProduct(id))
   };
 };
 
