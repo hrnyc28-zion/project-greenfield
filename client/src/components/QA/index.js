@@ -8,6 +8,7 @@ import ModalForm from './Modal/ModalForm';
 const QA = ({ storeQuestions, initQuestionsInStore }) => {
   const [questions, setQuestions] = useState([]);
   const [showAddQuestion, setshowAddQuestion] = useState(false);
+  const [questionPaginate, setQuestionPaginate] = useState(2);
 
   useEffect(() => {
     initQuestionsInStore();
@@ -25,6 +26,12 @@ const QA = ({ storeQuestions, initQuestionsInStore }) => {
     setshowAddQuestion(true);
   };
 
+  const handleLoadMoreQuestion = () => {
+    if (questionPaginate < questions.length - 1) {
+      setQuestionPaginate(questionPaginate + 2);
+    }
+  };
+
   const renderQuestionList = () => {
     if (questions.length === 0) {
       return (
@@ -39,11 +46,19 @@ const QA = ({ storeQuestions, initQuestionsInStore }) => {
     }
     return (
       <div>
-        <QuestionList questions={questions} />
+        <QuestionList questions={questions.slice(0, questionPaginate)} />
         <div className="bottomButton">
-          <button className="btn btn-outline-secondary" type="button">
-            MORE ANSWERED QUESTIONS
-          </button>
+          {!(
+            questions.length <= 2 || questionPaginate >= questions.length - 1
+          ) && (
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              onClick={handleLoadMoreQuestion}
+            >
+              MORE ANSWERED QUESTIONS
+            </button>
+          )}
           <button
             className="btn btn-outline-secondary"
             type="button"

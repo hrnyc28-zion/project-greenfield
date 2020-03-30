@@ -75,7 +75,8 @@ const QuestionItem = ({ currentQuestion }) => {
         <div>
           <AnswerList answers={sortedAnswers.slice(0, answerPaginate)} />
           {!(
-            sortedAnswers.length <= 2 || answerPaginate >= sortedAnswers.length
+            sortedAnswers.length <= 2 ||
+            answerPaginate >= sortedAnswers.length - 1
           ) && (
             <button
               type="button"
