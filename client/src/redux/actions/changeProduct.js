@@ -5,6 +5,7 @@ import { setStyle, setThumbnail } from './selected';
 import setQuestions from './setQuestions';
 import setReviews from './setReviews';
 import setBreakdowns from './setBreakdowns';
+import { getRelatedProduct } from './related';
 
 // Use API calls to init redux store
 const changeProduct = (id) => {
@@ -25,6 +26,8 @@ const changeProduct = (id) => {
 
     const breakdowns = await Reviews.getMetaData(id);
     dispatch(setBreakdowns(breakdowns.error ? [] : breakdowns));
+
+    dispatch(getRelatedProduct(id));
   };
 };
 

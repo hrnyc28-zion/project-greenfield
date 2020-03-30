@@ -9,7 +9,7 @@ import QA from './QA';
 
 function App({ initStore }) {
   useEffect(() => {
-    initStore(17);
+    initStore(20);
   }, []);
 
   return (
@@ -22,7 +22,7 @@ function App({ initStore }) {
       <Overview />
       <br />
       <br />
-      <RelateAndCompare sampleStore={sampleStore} />
+      <RelateAndCompare />
       <br />
       <br />
       <QA />
