@@ -22,7 +22,7 @@ const QuestionModalForm = ({
     if (questionBody.length < 1) msgBody += '* Question\n';
     if (nickname.length < 1) msgBody += '* Nickname\n';
     if (email.length < 1) msgBody += '* Email\n';
-    if (!isValidEmail()) msgBody += '* Valid Email\n';
+    if (!isValidEmail() && email.length > 0) msgBody += '* Valid Email\n';
     if (msgBody.length > 1) {
       // eslint-disable-next-line no-alert
       alert(`You must enter the following:\n${msgBody}`);
@@ -31,29 +31,22 @@ const QuestionModalForm = ({
 
     const newQuestion = {
       body: questionBody,
-      name: nickname
+      name: nickname,
+      email
     };
 
     const response = await QA.addQuestion(id, newQuestion);
 
-    console.log(`add question response response: ${JSON.stringify(response)}`);
-
-    if (!response.results) {
-      console.log('An error has occurd');
-    }
-
     if (!response.error) {
-      console.log('here....');
       const resQuestions = await QA.fetchAllQuestions(id);
       updateQuestions(resQuestions.error ? [] : resQuestions.results);
       setQuestionBody('');
       setNickname('');
       setEmail('');
+      handleClose();
     }
   };
 
-  // TODO:
-  // Generalize Modal Form so it can be reusable
   return (
     <>
       <Modal
@@ -105,11 +98,7 @@ const QuestionModalForm = ({
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={handleSubmit}
-            // disabled={!fieldsAreNotEmpty()}
-          >
+          <Button variant="primary" onClick={handleSubmit}>
             Submit
           </Button>
         </Modal.Footer>
