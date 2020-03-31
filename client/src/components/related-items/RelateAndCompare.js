@@ -20,8 +20,6 @@ class RelateAndCompare extends React.Component {
   }
 
   componentDidMount() {
-    // const { currentProduct, _getRelatedProduct } = this.props;
-    // _getRelatedProduct(currentProduct.id);
     const storage = localStorage.getItem('yourOutfit');
     if (storage !== null) {
       this.setState({ outfit: JSON.parse(storage) });
