@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import AnswerList from '../Answers/AnswerList';
 import QA_API from '../../../api/qa';
+import AnswerModalForm from '../Modal/AnswerModalForm';
 
 const QuestionItem = ({ currentQuestion }) => {
   const {
@@ -15,6 +16,7 @@ const QuestionItem = ({ currentQuestion }) => {
 
   const [answerPaginate, setanswerPaginate] = useState(2);
   const [helpfulness, setHelpfulness] = useState(question_helpfulness);
+  const [showAddAnswer, setShowAddAnswer] = useState(false);
 
   const sortedAnswers = Object.values(answers).sort((a, b) =>
     a.helpfulness > b.helpfulness ? -1 : 0
@@ -43,6 +45,10 @@ const QuestionItem = ({ currentQuestion }) => {
       <div className="row">
         <h5 className="col align-self-start">Q: {title}</h5>
         <div className="col-3 sideAction fcol align-self-end">
+          <AnswerModalForm
+            show={showAddAnswer}
+            handleClose={() => setShowAddAnswer(false)}
+          />
           Helpful?{' '}
           <button
             type="button"
@@ -65,6 +71,7 @@ const QuestionItem = ({ currentQuestion }) => {
               textDecoration: 'underline',
               outline: 'none'
             }}
+            onClick={() => setShowAddAnswer(true)}
           >
             Add Answer
           </button>
