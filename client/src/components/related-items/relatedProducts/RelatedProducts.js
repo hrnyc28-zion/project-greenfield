@@ -1,5 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronRight,
+  faChevronLeft
+} from '@fortawesome/free-solid-svg-icons';
+
 import RelatedProductsEntry from './RelatedProductEntry';
 import {
   setProductsInfo,
@@ -7,11 +13,47 @@ import {
 } from '../../../redux/actions/related';
 
 const RelatedProducts = ({ relatedProducts }) => {
+  const containerStyle = {
+    width: relatedProducts.products.length * 295
+  };
+  let scroller = null;
+  const handleRightClick = () => {
+    scroller.scrollLeft += 590;
+  };
+
+  const handleLeftClick = () => {
+    scroller.scrollLeft -= 590;
+  };
+
   return (
     <div className="related-container" data-testid="related-products">
       <p className="related-title">Related Products</p>
-      <div className="related-card-container clearfix">
-        <div style={{ width: relatedProducts.products.length * 270 }}>
+      <div
+        className="related-card-container clearfix"
+        ref={(el) => {
+          scroller = el;
+        }}
+      >
+        <button
+          className="related-gallery-button left"
+          type="button"
+          onClick={() => {
+            handleLeftClick();
+          }}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <button
+          type="button"
+          className="related-gallery-button right"
+          onClick={() => {
+            handleRightClick();
+          }}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+        <div style={containerStyle}>
+          <div />
           {relatedProducts.products.map((product) => {
             return (
               <RelatedProductsEntry
@@ -24,6 +66,7 @@ const RelatedProducts = ({ relatedProducts }) => {
               />
             );
           })}
+          <div />
         </div>
       </div>
     </div>

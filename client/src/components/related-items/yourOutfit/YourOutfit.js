@@ -7,7 +7,7 @@ const YourOutfit = ({ outfit, addOutfitHandler, deleteOutfitHandler }) => {
     <div className="related-container">
       <p className="related-title">Your Outfit</p>
       <div className="related-card-container">
-        <div style={{ width: (outfit.length + 1) * 275 }}>
+        <div style={{ width: (outfit.length + 1) * 295 }}>
           <AddOutfit addOutfitHandler={addOutfitHandler} />
           {outfit.map((product) => {
             return (
