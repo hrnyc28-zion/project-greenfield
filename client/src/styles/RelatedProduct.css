@@ -73,6 +73,10 @@
   font-size: 130%;
 }
 
+.your-outfit-button.related-button:hover {
+  color: red;
+}
+
 .related-button:focus {
   outline: none;
 }
