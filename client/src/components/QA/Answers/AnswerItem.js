@@ -29,17 +29,8 @@ const AnswerItem = ({ answer, reportAnswer }) => {
   };
 
   const handleReportAnswer = async () => {
-    const answerInfo = JSON.parse(localStorage.getItem(answer.id));
-    if (!answerInfo || !answerInfo.answerReported) {
-      const response = await QA_API.reportAnswer(answer.id);
-      if (!response.error) {
-        localStorage.setItem(
-          answer.id,
-          JSON.stringify({ ...answerInfo, answerReported: true })
-        );
-        reportAnswer(answer.id);
-      }
-    }
+    const response = await QA_API.reportAnswer(answer.id);
+    if (!response.error) reportAnswer(answer.id);
   };
 
   return (
