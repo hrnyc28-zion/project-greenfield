@@ -10,8 +10,12 @@ import {
   faTwitterSquare,
   faPinterestSquare
 } from '@fortawesome/free-brands-svg-icons';
+import { connect } from 'react-redux';
 
-const SocialCard = () => {
+const SocialCard = ({
+  productName,
+  url = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+}) => {
   const ulStyles = {
     display: 'inline',
     padding: '0px'
@@ -22,21 +26,23 @@ const SocialCard = () => {
     margin: '2px'
   };
 
+  const quote = `I <3 the ${productName} from Team Zion!`;
+
   return (
     <div data-testid="socialCard">
       <ul style={ulStyles}>
         <li style={liStyles}>
-          <FacebookShareButton url="https://google.com" quote={'i <3 google'}>
+          <FacebookShareButton url={url} quote={quote}>
             <FontAwesomeIcon icon={faFacebookSquare} size="lg" color="gray" />
           </FacebookShareButton>
         </li>
         <li style={liStyles}>
-          <TwitterShareButton url="https://google.com" quote={'i <3 google'}>
+          <TwitterShareButton url={url} title={quote}>
             <FontAwesomeIcon icon={faTwitterSquare} size="lg" color="gray" />
           </TwitterShareButton>
         </li>
         <li style={liStyles}>
-          <PinterestShareButton url="https://google.com" quote={'i <3 google'}>
+          <PinterestShareButton url={url} description={quote}>
             <FontAwesomeIcon icon={faPinterestSquare} size="lg" color="gray" />
           </PinterestShareButton>
         </li>
@@ -45,4 +51,6 @@ const SocialCard = () => {
   );
 };
 
-export default SocialCard;
+const mapStateToProps = (state) => ({ productName: state.currentProduct.name });
+
+export default connect(mapStateToProps)(SocialCard);
