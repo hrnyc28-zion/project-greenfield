@@ -48,6 +48,7 @@ const QuestionItem = ({ currentQuestion }) => {
           <AnswerModalForm
             show={showAddAnswer}
             handleClose={() => setShowAddAnswer(false)}
+            questionId={id}
           />
           Helpful?{' '}
           <button
