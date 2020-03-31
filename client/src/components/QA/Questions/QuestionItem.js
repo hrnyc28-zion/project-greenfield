@@ -8,9 +8,7 @@ const QuestionItem = ({ currentQuestion }) => {
   const {
     question_body: title,
     question_id: id,
-    // question_date: date,
     question_helpfulness,
-    // reported,
     answers
   } = currentQuestion;
 

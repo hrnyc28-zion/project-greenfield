@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import reportAnswerAction from '../../../redux/actions/reportAnswer';
 import QA_API from '../../../api/qa';
 
 const dateFormatter = (dateStr) => {
@@ -9,7 +11,7 @@ const dateFormatter = (dateStr) => {
   });
 };
 
-const AnswerItem = ({ answer }) => {
+const AnswerItem = ({ answer, reportAnswer }) => {
   const [helpfulness, setHelpfulness] = useState(answer.helpfulness);
 
   const handleAnswerHelpful = async () => {
@@ -29,12 +31,13 @@ const AnswerItem = ({ answer }) => {
   const handleReportAnswer = async () => {
     const answerInfo = JSON.parse(localStorage.getItem(answer.id));
     if (!answerInfo || !answerInfo.answerReported) {
-      const response = await QA_API.markAnswerHelpful(answer.id);
+      const response = await QA_API.reportAnswer(answer.id);
       if (!response.error) {
         localStorage.setItem(
           answer.id,
           JSON.stringify({ ...answerInfo, answerReported: true })
         );
+        reportAnswer(answer.id);
       }
     }
   };
@@ -85,4 +88,10 @@ const AnswerItem = ({ answer }) => {
   );
 };
 
-export default AnswerItem;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    reportAnswer: (id) => dispatch(reportAnswerAction(id))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AnswerItem);
