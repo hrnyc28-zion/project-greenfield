@@ -1,4 +1,15 @@
 import React from 'react';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  PinterestShareButton
+} from 'react-share';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookSquare,
+  faTwitterSquare,
+  faPinterestSquare
+} from '@fortawesome/free-brands-svg-icons';
 
 const SocialCard = () => {
   const ulStyles = {
@@ -13,16 +24,21 @@ const SocialCard = () => {
 
   return (
     <div data-testid="socialCard">
-      Share:
       <ul style={ulStyles}>
         <li style={liStyles}>
-          <a href="default.asp">FB</a>
+          <FacebookShareButton url="https://google.com" quote={'i <3 google'}>
+            <FontAwesomeIcon icon={faFacebookSquare} size="lg" color="gray" />
+          </FacebookShareButton>
         </li>
         <li style={liStyles}>
-          <a href="news.asp">TW</a>
+          <TwitterShareButton url="https://google.com" quote={'i <3 google'}>
+            <FontAwesomeIcon icon={faTwitterSquare} size="lg" color="gray" />
+          </TwitterShareButton>
         </li>
         <li style={liStyles}>
-          <a href="contact.asp">IG</a>
+          <PinterestShareButton url="https://google.com" quote={'i <3 google'}>
+            <FontAwesomeIcon icon={faPinterestSquare} size="lg" color="gray" />
+          </PinterestShareButton>
         </li>
       </ul>
     </div>
