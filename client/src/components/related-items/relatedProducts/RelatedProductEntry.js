@@ -4,11 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import ToggleDispatch from '../context';
 import ComparisonModal from '../comparisonModal/ComparisonModal';
+import changeProduct from '../../../redux/actions/changeProduct';
 import RatingStars from '../../RatingStars';
-import {
-  setProductsInfo,
-  getRelatedProduct
-} from '../../../redux/actions/related';
 
 const initialState = { isCompareClicked: false };
 const reducer = (state, action) => {
@@ -26,7 +23,8 @@ const RelatedProductsEntry = ({
   price,
   productId,
   relatedProducts,
-  features
+  features,
+  initProduct
 }) => {
   const getImage = (relatedStyles) => {
     let results = null;
@@ -50,9 +48,12 @@ const RelatedProductsEntry = ({
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   };
-
   return (
-    <div className="related-card" data-testid="related-product-entry">
+    <div
+      className="related-card"
+      data-testid="related-product-entry"
+      onClick={() => initProduct(productId)}
+    >
       <button
         type="button"
         className="related-button"
@@ -87,7 +88,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  _setProductsInfo: setProductsInfo,
-  _getRelatedProduct: getRelatedProduct
-})(RelatedProductsEntry);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    initProduct: (id) => dispatch(changeProduct(id))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RelatedProductsEntry);

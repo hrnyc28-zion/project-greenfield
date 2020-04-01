@@ -49,7 +49,7 @@ class RelateAndCompare extends React.Component {
       localStorage.setItem('yourOutfit', JSON.stringify([product]));
     } else {
       storage = JSON.parse(localStorage.getItem('yourOutfit'));
-      storage.push(product);
+      storage.unshift(product);
       localStorage.setItem('yourOutfit', JSON.stringify(storage));
       this.setState({ outfit: storage });
     }
