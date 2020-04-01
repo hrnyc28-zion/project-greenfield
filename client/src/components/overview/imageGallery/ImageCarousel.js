@@ -1,24 +1,42 @@
 import React from 'react';
+import { Carousel } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { setThumbnail } from '../../../redux/actions/selected';
 
-const ImageCarousel = ({ photos }) => {
+const ImageCarousel = ({
+  photos,
+  selectedThumbnailIndex,
+  setThumbnailIndex
+}) => {
   return (
-    // <div id="imageCarousel" className="carousel slide" data-ride="carousel">
-
-    <div id="imageCarousel" className="carousel slide" data-ride="carousel">
-      <div className="carousel-inner">
-        {photos.map(({ url }, index) => (
-          <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-            <img className="d-block w-100" src={url} alt="First slide" />
-          </div>
-        ))}
-      </div>
-    </div>
+    <Carousel
+      activeIndex={selectedThumbnailIndex}
+      onSelect={(index) => {
+        setThumbnailIndex(index);
+      }}
+      fade
+      interval={null}
+      indicators={false}
+    >
+      {photos.map(({ url }) => (
+        <Carousel.Item key={url}>
+          <img
+            className="w-100"
+            src={url}
+            alt="First slide"
+            style={{ objectFit: 'contain' }}
+          />
+        </Carousel.Item>
+      ))}
+    </Carousel>
   );
 };
 
 const mapStateToProps = (state) => ({
-  photos: state.selected.style.photos
+  photos: state.selected.style.photos,
+  selectedThumbnailIndex: state.selected.thumbnailIndex
 });
 
-export default connect(mapStateToProps)(ImageCarousel);
+const mapDispatchToProps = { setThumbnailIndex: setThumbnail };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageCarousel);
