@@ -32,7 +32,7 @@
 
 .related-container {
   margin: 20px auto 20px auto;
-  width: 100%;
+  width: 1110px;
 }
 
 .related-card-container {
@@ -194,25 +194,23 @@
   position: absolute;
   z-index: 1000;
   height: 420px;
-  width: 50px;
+  width: 40px;
   border: none;
   outline: none;
+  transition: opacity 0.2s linear;
+  opacity: 1;
 }
 
 .related-gallery-button:focus {
   outline: none;
 }
 
-/* .related-gallery-button:hover {
-  background: linear-gradient(rgba(255, 255, 255, 0.25));
-} */
-
 .related-gallery-button.right {
-  left: 1268px;
+  left: 1278px;
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.85)
+    rgba(255, 255, 255, 1)
   );
 }
 
@@ -220,6 +218,17 @@
   background: linear-gradient(
     to left,
     rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.85)
+    rgba(255, 255, 255, 1)
   );
+}
+
+.plus {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+}
+
+.hide-button {
+  /* visibility: hidden; */
+  opacity: 0;
 }

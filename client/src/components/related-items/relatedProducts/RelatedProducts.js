@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -25,17 +25,28 @@ const RelatedProducts = ({ relatedProducts }) => {
     scroller.scrollLeft -= 590;
   };
 
+  let [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    setScrollPosition((scrollPosition = scroller.scrollLeft));
+  };
+
   return (
     <div className="related-container" data-testid="related-products">
       <p className="related-title">Related Products</p>
       <div
-        className="related-card-container clearfix"
         ref={(el) => {
           scroller = el;
         }}
+        onScroll={() => {
+          handleScroll();
+        }}
+        className="related-card-container clearfix"
       >
         <button
-          className="related-gallery-button left"
+          className={`related-gallery-button left ${
+            scrollPosition < 10 ? 'hide-button' : ''
+          }`}
           type="button"
           onClick={() => {
             handleLeftClick();
@@ -45,7 +56,11 @@ const RelatedProducts = ({ relatedProducts }) => {
         </button>
         <button
           type="button"
-          className="related-gallery-button right"
+          className={`related-gallery-button right ${
+            scrollPosition > relatedProducts.products.length * 295 - 1130
+              ? 'hide-button'
+              : ''
+          }`}
           onClick={() => {
             handleRightClick();
           }}
