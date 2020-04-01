@@ -12,6 +12,10 @@
   object-fit: contain;
 }
 
+.carousel-control-prev {
+  left: 10%;
+}
+
 #thumbnailCarousel {
   position: absolute;
   top: 50%;
@@ -20,12 +24,22 @@
   width: 10%;
   min-width: 40px;
   margin: 0 2.5%;
+  padding: 1% 1%;
+  background-color: rgb(236, 236, 236, 0.5);
 }
 
 .thumbnailContainer {
-  /* is this needed? */
   position: relative;
   margin: 10px 0;
+  outline: none;
+}
+
+.thumbnailContainer:first-of-type {
+  margin-top: 0;
+}
+
+.thumbnailContainer:last-of-type {
+  margin-bottom: 0;
 }
 
 .thumbnailContainer::after {
@@ -42,19 +56,13 @@
   width: 100%;
   object-fit: cover;
   overflow: hidden;
+  box-sizing: content-box;
 }
 
-#thumbnailCarousel .row {
-  padding: 10px 0px;
+.thumbnailContainer.selected img {
+  border-bottom: 5px solid slategray;
 }
 
-/* 
-#thumbnailCarousel ul {
-  list-style-type: none;
-  padding: 0;
+.thumbnailContainer img:hover {
+  border-bottom: 5px solid slategray;
 }
-
-#thumbnailCarousel li {
-  height: 50px;
-  width: 50px;
-} */

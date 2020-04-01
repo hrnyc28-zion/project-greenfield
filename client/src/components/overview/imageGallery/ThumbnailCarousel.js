@@ -6,7 +6,9 @@ const ThumbnailCarousel = ({ photos, thumbnailIndex, selectThumbnail }) => {
       {photos.map((photo, index) => (
         // <div className="row">
         <div
-          className="thumbnailContainer"
+          className={`thumbnailContainer ${
+            index === thumbnailIndex ? 'selected' : ''
+          }`}
           onClick={() => selectThumbnail(index)}
           onKeyDown={() => selectThumbnail(index)}
           role="button"
@@ -18,24 +20,6 @@ const ThumbnailCarousel = ({ photos, thumbnailIndex, selectThumbnail }) => {
       ))}
     </div>
   );
-
-  // return (
-  //   <div id="thumbnailCarousel" className="ovContainer">
-  //     {photos.map((photo, index) => (
-  //       <div className="row">
-  //         <div
-  //           className="thumbnailContainer"
-  //           onClick={() => selectThumbnail(index)}
-  //           onKeyDown={() => selectThumbnail(index)}
-  //           role="button"
-  //           tabIndex={0}
-  //         >
-  //           <img src={photo.url} alt="" />
-  //         </div>
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
 };
 
 export default ThumbnailCarousel;
