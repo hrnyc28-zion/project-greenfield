@@ -2,7 +2,7 @@ import React from 'react';
 
 const ThumbnailCarousel = ({ photos, thumbnailIndex, selectThumbnail }) => {
   return (
-    <div>
+    <div className="thumbnailCarousel">
       <ul>
         {photos.map((photo, index) => (
           <li>

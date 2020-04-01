@@ -6,3 +6,8 @@
   height: 60vh;
   min-height: 400px;
 }
+
+.thumbnailCarousel ul {
+  list-style-type: none;
+  padding: 0;
+}
