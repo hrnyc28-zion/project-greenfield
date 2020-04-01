@@ -27,27 +27,26 @@ const AnswerModalForm = ({
 
   const isValidEmail = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleUploadImage = () => {
-    const storageRef = firebase.storage().ref();
-    const fileName = selectedImage.name;
-    const index = fileName.lastIndexOf('.');
-    const extension = index ? fileName.slice(index) : '';
-    const imageRef = storageRef.child(`images/${uuidv4()}${extension}`);
-    imageRef.put(selectedImage).then((snapshot) => {
-      if (snapshot.state === 'success') {
-        snapshot.ref
-          .getDownloadURL()
-          .then((url) => setImgUrls([...imgUrls, url]));
-        setSelectedImage(undefined);
-      }
-    });
-  };
-
   useEffect(() => {
+    const handleUploadImage = () => {
+      const storageRef = firebase.storage().ref();
+      const fileName = selectedImage.name;
+      const index = fileName.lastIndexOf('.');
+      const extension = index ? fileName.slice(index) : '';
+      const imageRef = storageRef.child(`images/${uuidv4()}${extension}`);
+      imageRef.put(selectedImage).then((snapshot) => {
+        if (snapshot.state === 'success') {
+          snapshot.ref
+            .getDownloadURL()
+            .then((url) => setImgUrls([...imgUrls, url]));
+          setSelectedImage(undefined);
+        }
+      });
+    };
     if (selectedImage !== undefined) {
       handleUploadImage();
     }
-  }, [selectedImage]);
+  }, [selectedImage, imgUrls]);
 
   const handleSubmit = async () => {
     let msgBody = '';
