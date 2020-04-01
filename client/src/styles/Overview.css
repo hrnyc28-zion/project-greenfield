@@ -1,3 +1,7 @@
+#imageGallery {
+  position: relative;
+}
+
 .carousel {
   background-color: rgb(236, 236, 236);
 }
@@ -10,20 +14,40 @@
 
 #thumbnailCarousel {
   position: absolute;
-  top: 10%;
-  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 100;
+  width: 10%;
+  min-width: 40px;
+  margin: 0 2.5%;
+}
+
+.thumbnailContainer {
+  /* is this needed? */
+  position: relative;
+  margin: 10px 0;
+}
+
+.thumbnailContainer::after {
+  display: block;
+  content: '';
+  padding-top: 100%;
+}
+
+#thumbnailCarousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 #thumbnailCarousel .row {
   padding: 10px 0px;
 }
 
-#thumbnailCarousel img {
-  height: 80px;
-  width: 80px;
-  object-fit: cover;
-}
 /* 
 #thumbnailCarousel ul {
   list-style-type: none;

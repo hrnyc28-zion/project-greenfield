@@ -6,7 +6,7 @@ import ThumbnailCarousel from './ThumbnailCarousel';
 
 const ImageGallery = ({ photos, thumbnailIndex, selectThumbnail }) => {
   return (
-    <div data-testid="imageGallery">
+    <div data-testid="imageGallery" id="imageGallery">
       <ImageCarousel
         photos={photos}
         photoIndex={thumbnailIndex}
