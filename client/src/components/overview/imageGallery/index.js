@@ -10,7 +10,7 @@ const ImageGallery = ({ style, selectThumbnail }) => {
       <div>
         <ul>
           {style.photos.map((photo, index) => (
-            <li style={{ display: 'inline' }}>
+            <li>
               <span
                 onClick={() => selectThumbnail(index)}
                 onKeyDown={() => selectThumbnail(index)}
