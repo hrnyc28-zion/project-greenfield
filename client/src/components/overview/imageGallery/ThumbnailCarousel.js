@@ -2,21 +2,20 @@ import React from 'react';
 
 const ThumbnailCarousel = ({ photos, thumbnailIndex, selectThumbnail }) => {
   return (
-    <div className="thumbnailCarousel">
-      <ul>
-        {photos.map((photo, index) => (
-          <li>
-            <span
-              onClick={() => selectThumbnail(index)}
-              onKeyDown={() => selectThumbnail(index)}
-              role="button"
-              tabIndex={0}
-            >
-              <img src={photo.url} alt="" style={{ maxWidth: '50px' }} />
-            </span>
-          </li>
-        ))}
-      </ul>
+    <div id="thumbnailCarousel" className="container">
+      {photos.map((photo, index) => (
+        <div className="row">
+          <div
+            className="thumbnailContainer"
+            onClick={() => selectThumbnail(index)}
+            onKeyDown={() => selectThumbnail(index)}
+            role="button"
+            tabIndex={0}
+          >
+            <img src={photo.url} alt="" />
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

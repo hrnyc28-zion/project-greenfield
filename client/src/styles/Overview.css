@@ -5,9 +5,32 @@
 .carousel img {
   height: 60vh;
   min-height: 400px;
+  object-fit: contain;
 }
 
-.thumbnailCarousel ul {
+#thumbnailCarousel {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  z-index: 100;
+}
+
+#thumbnailCarousel .row {
+  padding: 10px 0px;
+}
+
+#thumbnailCarousel img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+/* 
+#thumbnailCarousel ul {
   list-style-type: none;
   padding: 0;
 }
+
+#thumbnailCarousel li {
+  height: 50px;
+  width: 50px;
+} */
