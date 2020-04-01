@@ -14,6 +14,7 @@ const AnswerModalForm = ({
   show,
   handleClose,
   questionId,
+  questionBody,
   productId,
   productName,
   updateQuestions
@@ -91,7 +92,9 @@ const AnswerModalForm = ({
         <Modal.Header closeButton>
           <div className="modalHeader">
             <h4>Submit your Answer</h4>
-            <h6>{productName}: [Question Body]</h6>
+            <h6>
+              {productName}: {questionBody}
+            </h6>
           </div>
         </Modal.Header>
         <Modal.Body>
