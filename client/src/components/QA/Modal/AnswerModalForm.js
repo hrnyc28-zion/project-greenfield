@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 import { connect } from 'react-redux';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Image } from 'react-bootstrap';
+import { v4 as uuidv4 } from 'uuid';
 import setQuestions from '../../../redux/actions/setQuestions';
 import { QA } from '../../../api';
+import firebaseConfig from '../../../firebaseConfig';
 
-// TODO: Make it AnswerModalForm
+firebase.initializeApp(firebaseConfig);
 
 const AnswerModalForm = ({
   show,
@@ -17,8 +21,32 @@ const AnswerModalForm = ({
   const [answerBody, setAnswerBody] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
+  const [selectedImage, setSelectedImage] = useState(undefined);
+  const [imgUrls, setImgUrls] = useState([]);
 
   const isValidEmail = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleUploadImage = () => {
+    const storageRef = firebase.storage().ref();
+    const fileName = selectedImage.name;
+    const index = fileName.lastIndexOf('.');
+    const extension = index ? fileName.slice(index) : '';
+    const imageRef = storageRef.child(`images/${uuidv4()}${extension}`);
+    imageRef.put(selectedImage).then((snapshot) => {
+      if (snapshot.state === 'success') {
+        snapshot.ref
+          .getDownloadURL()
+          .then((url) => setImgUrls([...imgUrls, url]));
+        setSelectedImage(undefined);
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (selectedImage !== undefined) {
+      handleUploadImage();
+    }
+  }, [selectedImage]);
 
   const handleSubmit = async () => {
     let msgBody = '';
@@ -35,6 +63,7 @@ const AnswerModalForm = ({
     const newAnswer = {
       body: answerBody,
       name: nickname,
+      photos: imgUrls,
       email
     };
 
@@ -46,6 +75,7 @@ const AnswerModalForm = ({
       setAnswerBody('');
       setNickname('');
       setEmail('');
+      setImgUrls([]);
       handleClose();
     }
   };
@@ -95,7 +125,23 @@ const AnswerModalForm = ({
             <Form.Text className="text-muted">
               For authentication reasons, you will not be emailed
             </Form.Text>
-            <Form.Label>Upload your photos</Form.Label>
+            <Form.Label hidden={imgUrls.length >= 5}>
+              Upload your photos
+            </Form.Label>
+            <br />
+            {imgUrls.map((url) => (
+              <Image
+                src={url}
+                style={{ maxHeight: '100px', maxWidth: '100px' }}
+              />
+            ))}
+            <Form.File>
+              <Form.File.Input
+                accept="image/*"
+                hidden={imgUrls.length >= 5}
+                onChange={(e) => setSelectedImage(e.target.files[0])}
+              />
+            </Form.File>
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
