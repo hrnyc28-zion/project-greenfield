@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { setThumbnail } from '../../../redux/actions/selected';
 
-const ThumbnailCarousel = ({ photos, selectThumbnail }) => {
+const ThumbnailCarousel = ({ photos, thumbnailIndex, selectThumbnail }) => {
   return (
     <div>
       <ul>
@@ -23,12 +21,4 @@ const ThumbnailCarousel = ({ photos, selectThumbnail }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  style: state.selected.style,
-  thumbnailIndex: state.selected.thumbnailIndex
-});
-
-const mapDispatchToProps = { selectThumbnail: setThumbnail };
-
-export default connect(mapStateToProps, mapDispatchToProps)(ImageGallery);
-// export default ImageGallery;
+export default ThumbnailCarousel;
