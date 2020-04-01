@@ -9,7 +9,7 @@ import QA from './QA';
 
 function App({ initStore }) {
   useEffect(() => {
-    initStore(55);
+    initStore(86);
   }, []);
 
   return (
