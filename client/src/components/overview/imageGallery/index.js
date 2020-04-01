@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 import { setThumbnail } from '../../../redux/actions/selected';
 import ImageCarousel from './ImageCarousel';
 
-const ImageGallery = ({ style, selectThumbnail }) => {
+const ImageGallery = ({ photos, thumbnailIndex, selectThumbnail }) => {
   return (
     <div data-testid="imageGallery">
-      <ImageCarousel />
+      <ImageCarousel
+        photos={photos}
+        photoIndex={thumbnailIndex}
+        setPhotoIndex={selectThumbnail}
+      />
       <div>
         <ul>
-          {style.photos.map((photo, index) => (
+          {photos.map((photo, index) => (
             <li>
               <span
                 onClick={() => selectThumbnail(index)}
@@ -28,7 +32,7 @@ const ImageGallery = ({ style, selectThumbnail }) => {
 };
 
 const mapStateToProps = (state) => ({
-  style: state.selected.style,
+  photos: state.selected.style.photos,
   thumbnailIndex: state.selected.thumbnailIndex
 });
 

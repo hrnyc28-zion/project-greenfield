@@ -1,18 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { setThumbnail } from '../../../redux/actions/selected';
 
-const ImageCarousel = ({
-  photos,
-  selectedThumbnailIndex,
-  setThumbnailIndex
-}) => {
+const ImageCarousel = ({ photos, photoIndex, setPhotoIndex }) => {
   return (
     <Carousel
-      activeIndex={selectedThumbnailIndex}
+      activeIndex={photoIndex}
       onSelect={(index) => {
-        setThumbnailIndex(index);
+        setPhotoIndex(index);
       }}
       fade
       interval={null}
@@ -32,11 +26,4 @@ const ImageCarousel = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  photos: state.selected.style.photos,
-  selectedThumbnailIndex: state.selected.thumbnailIndex
-});
-
-const mapDispatchToProps = { setThumbnailIndex: setThumbnail };
-
-export default connect(mapStateToProps, mapDispatchToProps)(ImageCarousel);
+export default ImageCarousel;
