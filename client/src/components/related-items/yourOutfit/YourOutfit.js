@@ -60,10 +60,10 @@ const YourOutfit = ({ outfit, addOutfitHandler, deleteOutfitHandler }) => {
         </button>
         <div style={{ width: (outfit.length + 1) * 295 }}>
           <AddOutfit addOutfitHandler={addOutfitHandler} />
-          {outfit.map((product) => {
+          {outfit.map((product, index) => {
             return (
               <YourOutfitEntry
-                key={product.id}
+                key={`${product.id}-${index}`}
                 productId={product.id}
                 image={product.thumbnail_url}
                 category={product.category}

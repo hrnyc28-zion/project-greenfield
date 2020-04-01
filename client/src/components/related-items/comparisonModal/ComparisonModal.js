@@ -56,7 +56,10 @@ const ComparisonModal = ({ features, currentProduct, name }) => {
       <button
         type="button"
         className="comparison-modal-container"
-        onClick={() => dispatch({ type: 'toggleCompare' })}
+        onClick={(e) => {
+          e.stopPropagation();
+          dispatch({ type: 'toggleCompare' });
+        }}
       >
         <div className="comparison-modal">
           <div>

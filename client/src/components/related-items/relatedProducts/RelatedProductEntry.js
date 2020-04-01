@@ -50,14 +50,20 @@ const RelatedProductsEntry = ({
   };
   return (
     <div
+      role="button"
+      tabIndex={0}
       className="related-card"
       data-testid="related-product-entry"
       onClick={() => initProduct(productId)}
+      onKeyPress={() => {}}
     >
       <button
         type="button"
         className="related-button"
-        onClick={() => dispatch({ type: 'toggleCompare' })}
+        onClick={(e) => {
+          e.stopPropagation();
+          dispatch({ type: 'toggleCompare' });
+        }}
       >
         <FontAwesomeIcon icon={faStar} />
       </button>

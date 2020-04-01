@@ -191,15 +191,16 @@
 
 .related-gallery-button {
   font-size: 25px;
-  color: rgb(75, 75, 75);
+  color: rgb(125, 125, 125);
   position: absolute;
   z-index: 1000;
   height: 420px;
-  width: 40px;
+  width: 45px;
   border: none;
   outline: none;
   transition: opacity 0.2s linear;
   opacity: 1;
+  transition: all 0.25s ease;
 }
 
 .related-gallery-button:focus {
@@ -211,6 +212,7 @@
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.6),
     rgba(255, 255, 255, 1)
   );
 }
@@ -219,8 +221,13 @@
   background: linear-gradient(
     to left,
     rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.6),
     rgba(255, 255, 255, 1)
   );
+}
+
+.related-gallery-button:hover {
+  color: rgb(75, 75, 75);
 }
 
 .plus {
