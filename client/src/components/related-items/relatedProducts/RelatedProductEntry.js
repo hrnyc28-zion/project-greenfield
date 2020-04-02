@@ -8,7 +8,7 @@ import changeProduct from '../../../redux/actions/changeProduct';
 import RatingStars from '../../RatingStars';
 
 const defaultImgae =
-  'https://s7d5.scene7.com/is/image/UrbanOutfitters/55848428_060_b?$xlarge$&hei=900&qlt=80&fit=constrain';
+  'https://s7d5.scene7.com/is/image/UrbanOutfitters/50927557_053_b?$xlarge$&hei=900&qlt=80&fit=constrain';
 const initialState = { isCompareClicked: false };
 const reducer = (state, action) => {
   switch (action.type) {
