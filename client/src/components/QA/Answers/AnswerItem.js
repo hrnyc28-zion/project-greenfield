@@ -61,9 +61,10 @@ const AnswerItem = ({ answer, reportAnswer }) => {
               width: '160px',
               height: '100px',
               marginRight: '10px',
+              marginTop: '12px',
+              marginBottom: '12px',
               objectFit: 'cover'
             }}
-            className="img-thumbnail"
             onClick={(e) => {
               setClickedImage(e.target.src);
               setShowImageModal(true);
