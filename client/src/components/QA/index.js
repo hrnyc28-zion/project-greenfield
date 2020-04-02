@@ -60,6 +60,13 @@ const QA = ({ storeQuestions }) => {
               className="btn btn-outline-secondary"
               type="button"
               onClick={handleLoadMoreQuestion}
+              style={{
+                marginRight: '16px',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                padding: '22px',
+                outline: 'none'
+              }}
             >
               MORE ANSWERED QUESTIONS
             </button>
@@ -68,6 +75,13 @@ const QA = ({ storeQuestions }) => {
             className="btn btn-outline-secondary"
             type="button"
             onClick={showAddQuestionModal}
+            style={{
+              marginRight: '16px',
+              fontSize: '18px',
+              fontWeight: 'bold',
+              padding: '22px',
+              outline: 'none'
+            }}
           >
             ADD A QUESTION +
           </button>
@@ -78,7 +92,9 @@ const QA = ({ storeQuestions }) => {
 
   return (
     <div id="qa" data-testid="qaTest">
-      <h1>QUESTIONS & ANSWERS</h1>
+      <h4 style={{ color: 'rgb(104, 104, 104)', marginBottom: '24px' }}>
+        QUESTIONS & ANSWERS
+      </h4>
       <SearchQuestion term={searchTerm} setTerm={setSearchTerm} />
       {/* {FIXME: Console err: findDOMNode is deprecated in StrictMode} */}
       <QuestionModalForm
