@@ -18,17 +18,17 @@ const RelatedProducts = ({ relatedProducts }) => {
   };
   let scroller = null;
   const handleRightClick = () => {
-    scroller.scrollLeft += 590;
+    scroller.scrollLeft += 595;
   };
 
   const handleLeftClick = () => {
-    scroller.scrollLeft -= 590;
+    scroller.scrollLeft -= 595;
   };
 
-  let [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
-    setScrollPosition((scrollPosition = scroller.scrollLeft));
+    setScrollPosition(scroller.scrollLeft);
   };
 
   return (

@@ -14,7 +14,7 @@ const AddOutfit = ({ addOutfitHandler }) => {
         <div>
           <FontAwesomeIcon className="plus" icon={faPlus} />
           <div className="">
-            <p className="">Add to Outfit</p>
+            <p style={{ color: 'rgb(93, 93, 93)' }}>Add to Outfit</p>
           </div>
         </div>
       </div>

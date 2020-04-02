@@ -17,10 +17,10 @@ const YourOutfit = ({ outfit, addOutfitHandler, deleteOutfitHandler }) => {
     scroller.scrollLeft -= 590;
   };
 
-  let [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
-    setScrollPosition((scrollPosition = scroller.scrollLeft));
+    setScrollPosition(scroller.scrollLeft);
   };
   return (
     <div className="related-container">
@@ -60,10 +60,10 @@ const YourOutfit = ({ outfit, addOutfitHandler, deleteOutfitHandler }) => {
         </button>
         <div style={{ width: (outfit.length + 1) * 295 }}>
           <AddOutfit addOutfitHandler={addOutfitHandler} />
-          {outfit.map((product, index) => {
+          {outfit.map((product) => {
             return (
               <YourOutfitEntry
-                key={`${product.id}-${index}`}
+                key={`${product.id}-${Math.random() * (1000 - 1)}`}
                 productId={product.id}
                 image={product.thumbnail_url}
                 category={product.category}

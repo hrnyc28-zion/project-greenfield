@@ -7,6 +7,9 @@ import ComparisonModal from '../comparisonModal/ComparisonModal';
 import changeProduct from '../../../redux/actions/changeProduct';
 import RatingStars from '../../RatingStars';
 
+const defaultImgae =
+  'https://images.squarespace-cdn.com/content/v1/5161eef2e4b05c308167a6fa/1555279090674-AG75CRP3YADFPC3XXUGO/ke17ZwdGBToddI8pDm48kN_ZoNdj1kv_gIvm4zjH76N7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8AelHsSihC3tfiYK1eHEM7W3AVjJQSBul2wE-DqW7dygg/_MG_8028-1.jpg?format=1500w';
+
 const initialState = { isCompareClicked: false };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -31,7 +34,8 @@ const RelatedProductsEntry = ({
     relatedStyles.forEach((style) => {
       if (Number(style.product_id) === productId) {
         if (style.results.length > 0) {
-          results = style.results[0].photos[0].url;
+          const imgURL = style.results[0].photos[0].url;
+          results = imgURL === null ? defaultImgae : imgURL;
         }
       }
     });
@@ -42,7 +46,7 @@ const RelatedProductsEntry = ({
   const { styles } = relatedProducts;
   const imageStyle = {
     width: '100%',
-    height: '270px',
+    height: '295px',
     backgroundImage: `url(${getImage(styles)})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
