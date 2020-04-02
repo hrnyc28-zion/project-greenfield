@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col } from 'react-bootstrap';
-
 import {
   setProductsInfo,
   getRelatedProduct
