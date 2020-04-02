@@ -23,7 +23,7 @@ const QA = ({ storeQuestions }) => {
       );
       setQuestions(filtered);
     }
-  }, [searchTerm]);
+  }, [searchTerm, storeQuestions]);
 
   const handleAddQuestionModalClose = () => {
     setshowAddQuestion(false);
