@@ -46,6 +46,7 @@ const QA = ({ storeQuestions }) => {
           className="btn btn-outline-secondary"
           type="button"
           onClick={showAddQuestionModal}
+          style={{ marginTop: '16px' }}
         >
           Submit A New Question
         </button>
