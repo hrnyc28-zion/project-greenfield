@@ -56,7 +56,7 @@ const ReviewList = ({
                     helpful();
                   }}
                 >
-                  <span class="helpful-label">Helpful</span>
+                  <span className="helpful-label">Helpful</span>
                 </Dropdown.Item>
                 <Dropdown.Item
                   onSelect={() => {
