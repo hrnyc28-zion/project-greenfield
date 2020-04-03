@@ -33,6 +33,12 @@
   width: 33%;
 }
 
+.seller-response {
+  margin-top: 15px;
+  padding: 8px;
+  background-color: lightgray;
+}
+
 .review-product-breakdown {
   display: block;
 }

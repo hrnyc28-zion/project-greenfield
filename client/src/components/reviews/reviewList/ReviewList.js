@@ -83,6 +83,7 @@ const ReviewList = ({
                     rating={review.rating}
                     helpful={review.helpfulness}
                     reviewID={review.review_id}
+                    response={review.response}
                     markHelpful={markHelpful}
                     markReported={markReported}
                   />
