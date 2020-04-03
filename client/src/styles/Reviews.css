@@ -39,6 +39,10 @@
   background-color: lightgray;
 }
 
+.recommend-checkmark {
+  margin: 15px;
+}
+
 .review-product-breakdown {
   display: block;
 }
