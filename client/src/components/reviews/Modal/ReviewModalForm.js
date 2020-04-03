@@ -76,18 +76,13 @@ const ReviewModalForm = ({
       body: reviewBody,
       recommend: reviewerRecommends,
       name: nickname,
-      email: email,
+      email,
       photos: imgUrls,
       characteristics: reviewCharacteristics
     };
 
-    const response = await Reviews.postReview(productID, newReview);
-
-    console.log(response);
-
-    // if (!response.error) {
-    //   alert('review submitted!');
-    // }
+    Reviews.postReview(productID, newReview);
+    handleClose();
   };
 
   return (
@@ -115,14 +110,14 @@ const ReviewModalForm = ({
                 setOverallRating(Number(e.target.value));
               }}
             >
-              <div key={`inline-radio`} className="overall-rating-radio">
+              <div key="inline-radio" className="overall-rating-radio">
                 <Form.Check
                   inline
                   label="1"
                   value="1"
                   type="radio"
                   name="overall-rating-radio"
-                  id={`overall-rating-star-1`}
+                  id="overall-rating-star-1"
                 />
                 <Form.Check
                   inline
@@ -130,7 +125,7 @@ const ReviewModalForm = ({
                   value="2"
                   type="radio"
                   name="overall-rating-radio"
-                  id={`overall-rating-star-2`}
+                  id="overall-rating-star-2"
                 />
                 <Form.Check
                   inline
@@ -138,7 +133,7 @@ const ReviewModalForm = ({
                   value="3"
                   type="radio"
                   name="overall-rating-radio"
-                  id={`overall-rating-star-3`}
+                  id="overall-rating-star-3"
                 />
                 <Form.Check
                   inline
@@ -146,7 +141,7 @@ const ReviewModalForm = ({
                   value="4"
                   type="radio"
                   name="overall-rating-radio"
-                  id={`overall-rating-star-4`}
+                  id="overall-rating-star-4"
                 />
                 <Form.Check
                   inline
@@ -154,7 +149,7 @@ const ReviewModalForm = ({
                   value="5"
                   type="radio"
                   name="overall-rating-radio"
-                  id={`overall-rating-star-5`}
+                  id="overall-rating-star-5"
                 />
               </div>
             </Form.Group>
@@ -168,14 +163,14 @@ const ReviewModalForm = ({
                 else setReviewerRecommends(false);
               }}
             >
-              <div key={`inline-radio`} className="mb-3">
+              <div key="inline-radio" className="mb-3">
                 <Form.Check
                   inline
                   label="Yes"
-                  value={true}
+                  value
                   type="radio"
                   name="recommend-radio"
-                  id={`inline-radio-6`}
+                  id="inline-radio-6"
                 />
                 <Form.Check
                   inline
@@ -183,7 +178,7 @@ const ReviewModalForm = ({
                   value={false}
                   type="radio"
                   name="recommend-radio"
-                  id={`inline-radio-7`}
+                  id="inline-radio-7"
                 />
               </div>
             </Form.Group>
@@ -196,22 +191,21 @@ const ReviewModalForm = ({
                 as="radio"
                 onChange={(e) => {
                   const val = e.target.value;
-                  setCharacteristics((prevState) =>
-                    Object.assign({}, prevState, {
-                      [criterion[1][0][1]]: val
-                    })
-                  );
+                  setCharacteristics((prevState) => ({
+                    ...prevState,
+                    [criterion[1][0][1]]: val
+                  }));
                 }}
               >
                 {criterion[0]}
-                <div key={`inline-radio`} className="mb-3">
+                <div key="inline-radio" className="mb-3">
                   <Form.Check
                     inline
                     label="1"
                     value="1"
                     type="radio"
                     name={`recommend-radio-${criterion[0]}`}
-                    id={`inline-radio`}
+                    id="inline-radio"
                   />
 
                   <Form.Check
@@ -220,7 +214,7 @@ const ReviewModalForm = ({
                     value="2"
                     type="radio"
                     name={`recommend-radio-${criterion[0]}`}
-                    id={`inline-radio`}
+                    id="inline-radio"
                   />
 
                   <Form.Check
@@ -229,7 +223,7 @@ const ReviewModalForm = ({
                     value="3"
                     type="radio"
                     name={`recommend-radio-${criterion[0]}`}
-                    id={`inline-radio`}
+                    id="inline-radio"
                   />
                   <Form.Check
                     inline
@@ -237,7 +231,7 @@ const ReviewModalForm = ({
                     value="4"
                     type="radio"
                     name={`recommend-radio-${criterion[0]}`}
-                    id={`inline-radio`}
+                    id="inline-radio"
                   />
 
                   <Form.Check
@@ -246,7 +240,7 @@ const ReviewModalForm = ({
                     value="5"
                     type="radio"
                     name={`recommend-radio-${criterion[0]}`}
-                    id={`inline-radio`}
+                    id="inline-radio"
                   />
                 </div>
               </Form.Group>

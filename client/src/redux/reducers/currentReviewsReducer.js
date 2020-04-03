@@ -19,7 +19,6 @@ const currentReviewsReducer = (state = defaultState, action) => {
       const newResults = state.results.concat(action.payload.results);
       const newState = Object.assign({}, state);
       newState.results = newResults;
-      console.log(newState);
       return newState;
     default:
       return state;
