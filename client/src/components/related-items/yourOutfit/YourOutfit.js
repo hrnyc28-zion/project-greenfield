@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import YourOutfitEntry from './YourOutfitEntry';
 import AddOutfit from './AddOutfit';
-// update
+
 const YourOutfit = ({ outfit, addOutfitHandler, deleteOutfitHandler }) => {
   let scroller = null;
   const handleRightClick = () => {
