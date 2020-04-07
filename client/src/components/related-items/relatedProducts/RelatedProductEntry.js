@@ -71,6 +71,7 @@ const RelatedProductsEntry = ({
       >
         <FontAwesomeIcon icon={faStar} />
       </button>
+
       <Link to={`/product/${productId}`} style={{ textDecoration: 'none' }}>
         <div className="related-router">
           <div className="related-image-container">
@@ -86,6 +87,7 @@ const RelatedProductsEntry = ({
           </div>
         </div>
       </Link>
+
       <div className="related-modal-div">
         {toggle.isCompareClicked ? (
           <ToggleDispatch.Provider value={dispatch}>
