@@ -31,6 +31,7 @@ const YourOutfitEntry = ({
       >
         <FontAwesomeIcon icon={faTimes} />
       </button>
+
       <Link to={`/product/${productId}`} style={{ textDecoration: 'none' }}>
         <div className="related-router">
           <div className="related-image-container">
@@ -44,6 +45,7 @@ const YourOutfitEntry = ({
           </div>
         </div>
       </Link>
+
     </div>
   );
 };
